@@ -1,33 +1,30 @@
 import React from "react";
-import { Flex } from "rebass";
+import { Box, Flex } from "rebass";
 import { connect } from "react-redux";
-import GoogleFontLoader from "react-google-font-loader";
 import { createGlobalStyle } from "styled-components";
 
 import Header from "./Header";
+import Footer from "./Footer";
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0px;
-    font-family: "Open Sans", sans-serif;
-    background-color: #fafafa;
-  }
-`;
+import Fonts from "./Fonts";
+import GlobalStyles from "./GlobalStyles";
 
 const withLayout = Page => {
   return props => (
     <div>
-      <GoogleFontLoader
-        fonts={[
-          {
-            font: "Open Sans",
-            weights: [300, "300i", 400, 700, 800]
-          }
-        ]}
-      />
-      <GlobalStyle />
-      <Header />
-      <Page {...props} />
+      <Fonts />
+      <GlobalStyles />
+      <Flex flexWrap="wrap">
+        <Box width={1}>
+          <Header />
+        </Box>
+        <Box width={1}>
+          <Page {...props} />
+        </Box>
+        <Box width={1}>
+          <Footer />
+        </Box>
+      </Flex>
     </div>
   );
 };
