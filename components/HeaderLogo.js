@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import { Image, Flex, Text } from "rebass";
+import withZoom from "./withZoom";
 
 const Author = styled(Text)`
   font-size: 15px;
@@ -25,7 +26,7 @@ const ClickableLink = styled.div`
   }
 `;
 
-export default () => (
+const Index = () => (
   <ClickableLink>
     <Link href="/">
       <Flex>
@@ -40,3 +41,5 @@ export default () => (
     </Link>
   </ClickableLink>
 );
+
+export default withZoom(Index);

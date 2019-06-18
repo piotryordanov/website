@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import { Text, Flex } from "rebass";
+import withZoom from "./withZoom";
 
 const SubscribeButton = styled(Text)`
   font-size: 15px;
@@ -12,10 +13,14 @@ const SubscribeButton = styled(Text)`
   }
 `;
 
+const Index = withZoom(() => (
+  <Link href="subscribe">
+    <SubscribeButton>Subscribe</SubscribeButton>
+  </Link>
+));
+
 export default () => (
   <Flex alignItems="center">
-    <Link href="subscribe">
-      <SubscribeButton>Subscribe</SubscribeButton>
-    </Link>
+    <Index />
   </Flex>
 );

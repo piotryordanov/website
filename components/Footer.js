@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import { Text, Box, Flex } from "rebass";
 
+import withZoom from "./withZoom";
 import Navbar from "./Navbar";
 import HeaderLogo from "./HeaderLogo";
 import HeaderSubscribeButton from "./HeaderSubscribeButton";
@@ -43,11 +44,11 @@ const items = links.map(curr => (
 
 // ============================
 // Render
-export default () => (
-  <Box m={"auto"} width={[1, 1 / 2, 1040]}>
+export default withZoom(() => (
+  <Box py={0.5} px={2} m={"auto"} width={[1, 1 / 2, 1, 1040]}>
     <Flex justifyContent="space-between">
       <FooterText>© 2017 Piotr Yordanov</FooterText>
       <Flex>{items}</Flex>
     </Flex>
   </Box>
-);
+));

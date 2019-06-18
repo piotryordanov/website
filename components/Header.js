@@ -8,7 +8,7 @@ import HeaderSubscribeButton from "./HeaderSubscribeButton";
 
 export default () => (
   <Navbar location="top">
-    <Box pt={0.5} pb={0.5} m={"auto"} width={[1, 1 / 2, 1040]}>
+    <Box py={0.5} px={2} m={"auto"} width={[1, 1 / 2, 1, 1040]}>
       <Flex justifyContent="space-between">
         <HeaderLogo />
         <HeaderSubscribeButton />
