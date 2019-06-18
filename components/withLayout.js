@@ -9,7 +9,8 @@ import Header from "./Header";
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0px;
-  font-family: "Titillium Web", sans-serif;
+    font-family: "Open Sans", sans-serif;
+    background-color: #fafafa;
   }
 `;
 
@@ -19,15 +20,10 @@ const withLayout = Page => {
       <GoogleFontLoader
         fonts={[
           {
-            font: "Roboto",
-            weights: [400, "400i"]
-          },
-          {
-            font: "Titillium Web",
-            weights: [300, 400, 700]
+            font: "Open Sans",
+            weights: [300, "300i", 400, 700, 800]
           }
         ]}
-        subsets={["cyrillic-ext", "greek"]}
       />
       <GlobalStyle />
       <Header />
