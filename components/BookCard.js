@@ -1,0 +1,48 @@
+import styled from "styled-components";
+import Link from "next/link";
+import withZoom from "./withZoom";
+
+const Card = styled.div`
+  width: 300px;
+  height: 400px;
+  margin: 20px;
+  position: relative;
+  :hover {
+    cursor: pointer;
+  }
+`;
+const BackgroundImage = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background-position: 50% 50% !important;
+  background-size: cover;
+  filter: brightness(70%);
+  background-image: url(https://images.unsplash.com/photo-1560306969-d324964aa4e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+  border-radius: 5px;
+`;
+const Text = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 30px 5px 30px 20px;
+  font-size: 25px;
+  font-family: "Open Sans", sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: white;
+`;
+
+export default withZoom(() => (
+  <Link href="/test">
+    <Card>
+      <BackgroundImage />
+      <Text>Hello </Text>
+    </Card>
+  </Link>
+));

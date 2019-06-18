@@ -19,7 +19,9 @@ const withLayout = Page => {
           <Header />
         </Box>
         <Box width={1}>
-          <Page {...props} />
+          <Box py={0.5} px={2} m={"auto"} width={[1, 1 / 2, 1, 1040]}>
+            <Page {...props} />
+          </Box>
         </Box>
         <Box width={1}>
           <Footer />
