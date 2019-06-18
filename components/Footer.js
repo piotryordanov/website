@@ -47,7 +47,7 @@ const items = links.map(curr => (
 export default withZoom(() => (
   <Box py={0.5} px={2} m={"auto"} width={[1, 1 / 2, 1, 1040]}>
     <Flex justifyContent="space-between">
-      <FooterText>© 2017 Piotr Yordanov</FooterText>
+      <FooterText>© 2019 Piotr Yordanov</FooterText>
       <Flex>{items}</Flex>
     </Flex>
   </Box>
