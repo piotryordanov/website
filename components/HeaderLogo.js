@@ -19,14 +19,24 @@ const Subtitle = styled(Text)`
   overflow: hidden !important;
 `;
 
+const ClickableLink = styled.div`
+  :hover {
+    cursor: pointer;
+  }
+`;
+
 export default () => (
-  <Link href="/">
-    <Flex>
-      <Image mr={2} width={"26px"} src="/static/logo.svg" borderRadius={8} />
-      <Flex flexWrap="wrap">
-        <Author width={1}>PIOTR YORDANOV</Author>
-        <Subtitle width={1}>Author, Story Teller</Subtitle>
+  <ClickableLink>
+    <Link href="/">
+      <Flex>
+        <Image mr={2} width={"26px"} src="/static/logo.svg" borderRadius={8} />
+        <Flex flexWrap="wrap">
+          <Author mb={-0.5} width={1}>
+            PIOTR YORDANOV
+          </Author>
+          <Subtitle width={1}>Author, Story Teller</Subtitle>
+        </Flex>
       </Flex>
-    </Flex>
-  </Link>
+    </Link>
+  </ClickableLink>
 );

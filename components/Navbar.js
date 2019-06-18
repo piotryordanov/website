@@ -5,7 +5,6 @@ import { CSSTransition } from "react-transition-group";
 
 const Fixed = styled(Box)`
   transition: opacity 300ms ease-in-out;
-  position: fixed;
   ${props => (props.location == "top" ? { top: 0 } : { bottom: 0 })};
   ${props =>
     props.location == "top"
