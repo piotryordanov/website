@@ -35,7 +35,7 @@ const renderLogo = props =>
       <Image
         mr={2}
         width={"18px"}
-        src={`/static/${props.router.query.book}/logo.svg`}
+        src={`/static/logos/${props.router.query.book}.svg`}
         borderRadius={8}
       />
     ),
