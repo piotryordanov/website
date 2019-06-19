@@ -10,7 +10,7 @@ import Fonts from "./Fonts";
 import GlobalStyles from "./GlobalStyles";
 
 const withLayout = Page => props => (
-  <div>
+  <>
     <Fonts />
     <GlobalStyles />
     <Flex flexWrap="wrap">
@@ -26,6 +26,6 @@ const withLayout = Page => props => (
         <Footer />
       </Box>
     </Flex>
-  </div>
+  </>
 );
 export default withLayout;

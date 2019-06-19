@@ -25,7 +25,7 @@ const BackgroundImage = styled.div`
   background-position: 50% 50% !important;
   background-size: cover;
   filter: brightness(70%);
-  background-image: url(https://images.unsplash.com/photo-1560306969-d324964aa4e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+  background-image: ${props => `url(/static/covers/${props.id}.jpg)`};
   border-radius: 5px;
 `;
 const Text = styled.div`
@@ -40,11 +40,11 @@ const Text = styled.div`
   color: white;
 `;
 
-export default withZoom(() => (
-  <Link href="/book/test">
+export default withZoom(props => (
+  <Link href={`/book/${props.id}`}>
     <Card>
-      <BackgroundImage />
-      <Text>Hello </Text>
+      <BackgroundImage {...props} />
+      <Text>{props.title}</Text>
     </Card>
   </Link>
 ));

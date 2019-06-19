@@ -1,11 +1,11 @@
 import { createAction, createReducer } from "redux-act";
 import * as R from "ramda";
 
-export const updateUI = createAction("update ui");
+export const updateBooks = createAction("update books");
 
 export const reducer = createReducer(
   {
-    [updateUI]: (state, payload) => R.merge(state, payload)
+    [updateBooks]: (state, payload) => R.merge(state, payload)
   },
-  {title: "Hello world"}
+  { data: [] }
 );
