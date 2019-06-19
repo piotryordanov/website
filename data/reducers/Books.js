@@ -7,5 +7,5 @@ export const reducer = createReducer(
   {
     [updateBooks]: (state, payload) => R.merge(state, payload)
   },
-  []
+  { data: [] }
 );

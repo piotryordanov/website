@@ -23,7 +23,7 @@ class MyApp extends App {
     const { Component, pageProps, store } = this.props;
     axios
       .get("/getMeta")
-      .then(response => store.dispatch(updateBooks(response.data)));
+      .then(response => store.dispatch(updateBooks({ data: response.data })));
     return (
       <Container>
         <Provider store={store}>

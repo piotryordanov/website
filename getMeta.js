@@ -15,9 +15,7 @@ files.forEach(function(file) {
 console.log(bookDirectories);
 bookDirectories.map(function(dir) {
   var file = fs.readFileSync(path.join(directoryPath, dir) + "/meta.json");
-  var temp = {};
-  temp[dir] = JSON.parse(file);
-  books.push(temp);
+  books.push(JSON.parse(file));
 });
 
 exports.getMeta = function() {
