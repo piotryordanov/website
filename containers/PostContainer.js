@@ -15,7 +15,7 @@ const Index = props => withLoading(props);
 
 const mapStateToProps = (state, props) => ({
   data: R.ifElse(
-    R.hasPath(["router", "query", "book", "post"]),
+    R.hasPath(["router", "query", "book"]),
     R.always(R.find(R.propEq("id", props.router.query.book))(state.Books.data)),
     R.always({})
   )(props)

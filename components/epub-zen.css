@@ -1,0 +1,312 @@
+@font-face {
+  font-family: 'Bookerly';
+  src: url('static/fonts/Bookerly/Bookerly-Regular.woff')  format('truetype'),
+       url('static/fonts/Bookerly/Bookerly-RegularItalic.woff')  format('truetype'),
+       url('static/fonts/Bookerly/Bookerly-Bold.woff')  format('truetype'),
+       url('static/fonts/Bookerly/Bookerly-BoldItalic.woff')  format('truetype');
+}
+@font-face {
+  font-family: 'BookFont';
+  src: url('static/fonts/Nitti/nittigrotesk-normaltt-v201-web.woff')  format('truetype'),
+       url('static/fonts/Nitti/nittigrotesk-boldtt-v201-web.woff')  format('truetype'),
+       url('static/fonts/Nitti/nittigrotesk-normalitalictt-v201-web.woff')  format('truetype');
+}
+
+
+/*
+ Steve Default
+ */
+
+.zen.metrics {
+  margin: auto;
+  width: 800px;
+  z-index:999;
+}
+.zen.post {
+  margin: auto;
+  z-index:999;
+  background: transparent;
+  max-width: 750px;
+}
+
+.post__content__container {
+  z-index: 999;
+  width: 100%;
+  margin: auto;
+  padding: 0px 20px 40px 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.zen h1,
+.zen h2,
+.zen h3 {
+	-webkit-hyphens: none !important;
+}
+
+.zen h1,
+.zen h2,
+.zen h3,
+.zen h4,
+.zen h5,
+.zen h6 {
+  font-family: "BookFont",Helvetica,Arial,sans-serif;
+	page-break-after: avoid !important;
+}
+
+.zen h2,
+.zen h3,
+.zen h4,
+.zen h6 {
+	text-transform: capitalize;
+	margin: 2em 0 0.5em 0;
+}
+
+.zen h4,
+.zen h5 {
+	text-align: center;
+}
+
+.zen h5 {
+	font-weight: normal;
+	margin: 2em 0 2em 0;
+}
+
+.zen h4 {
+	font-style: italic;
+}
+
+.zen h3 {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 30px auto 20px auto;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.zen h1 {
+	font-size: 2.8em;
+	color: #000;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.zen h1::after {
+	content: "\262F";
+	display: block;
+	color: #000;
+	font-size: 1.2em;
+	margin: 0.7em 0;
+}
+
+.zen h2 {
+	font-size: 1.4em;
+	text-align: left;
+	width: 100%;
+	font-weight: bold;
+	font-size: 30px;
+	margin: 40px auto 30px 0px !important;
+}
+
+.zen h6 {
+	font-size: 1.3em;
+	page-break-before: always;
+	text-align: center;
+	color: transparent;
+}
+
+.zen h6::after {
+	content: "\262F";
+	display: block;
+	color: #000;
+	font-size: 1.2em;
+	margin: 1em 0 2em 0;
+}
+
+.zen h4 {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 30px auto !important;
+}
+
+.zen h5 {
+	font-size: 1.1em;
+}
+
+.zen h6 {
+	font-size: 1em;
+}
+
+.zen p {
+	margin: 0;
+	text-align: justify;
+  color: black;
+  font-size: 19px;
+	line-height: 32px;
+  font-family: BookFont;
+	text-align: justify;
+  margin-bottom: 24px;
+}
+.zen p.dialogue { margin-left: 0px; }
+p.dialogue:first-child:first-letter {
+  letter-spacing:0;
+  text-transform:uppercase;
+  color:#628fbe;
+  color: #903;
+  font-family:times,serif;
+  font-size: 60px;
+  float:left;
+  margin: 10px 0.2em 0 0;
+  line-height:0.7;
+}
+.zen .compact, .zen p p { margin: 0px; }
+
+.zen .compact, .zen .dialogue { text-indent: 0.7em; }
+
+
+.zen ul,
+.zen ol {
+	margin: 0.4em 0 0.8em 0;
+  padding-left: 40px;
+}
+
+.zen li {
+  margin: 10px 0px;
+  font-size: 19px;
+  line-height: 32px;
+  text-align: justify;
+  font-family: BookFont;
+}
+
+.zen blockquote {
+  margin: 4em auto 5em;
+  position: relative;
+  max-width: 640px;
+  width: 100%;
+}
+
+.zen blockquote p {
+  display: block;
+  margin-left: 25px;
+  color: #4a4a4a;
+  text-align: center;
+  max-width: 640px;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  text-indent: 0px;
+}
+.zen blockquote p:first-child:before {
+  content: "\201C";
+  font-size: 30px;
+  font-family: Georgia, serif;
+  color: #6f6f6f;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.zen blockquote p:first-child {
+  margin-left: -10px;
+}
+/* .zen blockquote p:last-child:after { */
+.zen blockquote:after {
+  content: '';
+  position: absolute;
+  background-color: #cacaca;
+  height: 1px;
+  bottom: -30px;
+  left: 40%;
+  width: 20%;
+}
+.zen blockquote .dialogue p:first-child:before {
+  content: "";
+}
+.zen blockquote hr:after {
+  content: "~";
+}
+.zen blockquote hr {
+  margin-top: .1em !important;
+  height: 35px;
+}
+
+.zen pre {
+	white-space: pre-wrap;
+}
+
+.zen code {
+	color: #000;
+	white-space: pre-wrap;
+}
+
+.zen strong {
+  font-weight: bold;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+hr {
+	text-align: center;
+	border: none;
+	margin-top: 1.3em !important;
+	height: 60px;
+}
+
+hr::after {
+	content: "∞";
+	content: "\2767";
+	color: #dedede;
+	font-size: 3em;
+}
+
+.zen em {
+  font-style: italic;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+@media (max-width: 480px) {
+  .zen p, .zen li {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .zen h2 {
+    line-height: 1.6;
+  }
+  p.dialogue:first-child:first-letter {
+    font-size: 40px;
+  }
+}
+
+.zen .part {
+  padding: 40px;
+  margin: 20px 0px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.09);
+  border-radius: 3px;
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 40px;
+}
+
+.zen .subscribe-incentive {
+  background: #f2f2f2;
+  padding: 10px 0px;
+  margin: 20px 0px;
+}
+
+
+
+.CodeMirror pre {
+  font-size: 19px;
+  line-height: 32px;
+  font-family: bookFont;
+}
+.CodeMirror {
+  border: none;
+  background: transparent;
+}
+
+
+#buttons button {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 5px;
+}
