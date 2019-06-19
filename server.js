@@ -1,5 +1,6 @@
 const express = require("express");
 const next = require("next");
+const getMeta = require("./getMeta");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -19,6 +20,10 @@ app
       const actualPage = "/book";
       const queryParams = { book: req.params.book };
       app.render(req, res, actualPage, queryParams);
+    });
+
+    server.get("/getmeta", (req, res) => {
+      res.json(getMeta.getMeta());
     });
 
     server.get("*", (req, res) => {
