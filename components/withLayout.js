@@ -9,26 +9,23 @@ import Footer from "./Footer";
 import Fonts from "./Fonts";
 import GlobalStyles from "./GlobalStyles";
 
-const withLayout = Page => {
-  return props => (
-    <div>
-      <Fonts />
-      <GlobalStyles />
-      <Flex flexWrap="wrap">
-        <Box width={1}>
-          <Header />
+const withLayout = Page => props => (
+  <div>
+    <Fonts />
+    <GlobalStyles />
+    <Flex flexWrap="wrap">
+      <Box width={1}>
+        <Header />
+      </Box>
+      <Box width={1}>
+        <Box py={0.5} px={2} m={"auto"} width={[1, 1 / 2, 1, 1040]}>
+          <Page {...props} />
         </Box>
-        <Box width={1}>
-          <Box py={0.5} px={2} m={"auto"} width={[1, 1 / 2, 1, 1040]}>
-            <Page {...props} />
-          </Box>
-        </Box>
-        <Box width={1}>
-          <Footer />
-        </Box>
-      </Flex>
-    </div>
-  );
-};
-
+      </Box>
+      <Box width={1}>
+        <Footer />
+      </Box>
+    </Flex>
+  </div>
+);
 export default withLayout;

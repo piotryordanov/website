@@ -7,7 +7,7 @@ const Component = withReveal(styled.div``, <Zoom />);
 export default Child => {
   return props => (
     <Component>
-      <Child />
+      <Child {...props}/>
     </Component>
   );
 };

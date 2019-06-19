@@ -6,7 +6,7 @@
   "description": "An opiniated frontend boilerplate built on top of nextJS",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,6 +25,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "eslint-config-xo-react": "^0.19.0",
+    "express": "^4.17.1",
     "next": "^8.1.0",
     "next-redux-wrapper": "^3.0.0-alpha.3",
     "nextjs": "^0.0.3",

@@ -7,8 +7,10 @@ const Card = styled.div`
   height: 400px;
   margin: 20px;
   position: relative;
+  transition: all 300ms ease-in-out;
   :hover {
     cursor: pointer;
+    padding: 5px;
   }
 `;
 const BackgroundImage = styled.div`
@@ -39,7 +41,7 @@ const Text = styled.div`
 `;
 
 export default withZoom(() => (
-  <Link href="/test">
+  <Link href="/book/test">
     <Card>
       <BackgroundImage />
       <Text>Hello </Text>
