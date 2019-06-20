@@ -5,9 +5,29 @@ import * as R from "ramda";
 
 import PostPage from "../components/PostPage";
 
-const withLoading = data =>
-  R.ifElse(R.isNil, R.always(<>Loading</>), R.always(<PostPage data={data} />))(
-    data
+const getContent = R.pipe(
+  R.remove(0, 3),
+  R.join("\n")
+);
+const getSoundtrack = R.pipe(
+  R.take(2),
+  R.takeLast(1),
+  d => {
+    const [artist, track, URL] = d[0].split(" - ");
+    return { artist: artist, track: track, URL: URL };
+  }
+);
+
+const parseMD = (md, setMarkdown) =>
+  setMarkdown(
+    R.pipe(
+      R.split("\n"),
+      md => ({
+        content: getContent(md),
+        date: R.take(1, md)[0],
+        soundtrack: getSoundtrack(md)
+      })
+    )(md)
   );
 
 const Index = props => {
@@ -17,17 +37,13 @@ const Index = props => {
     const query = props.router.query;
     axios
       .get(`/getMD/${query.book}/${query.slug}`)
-      .then(response => setMarkdown(response.data));
+      .then(response => parseMD(response.data, setMarkdown));
   }, "");
   return withLoading(markdown);
 };
-
-const mapStateToProps = (state, props) => ({
-  data: R.ifElse(
-    R.hasPath(["router", "query", "book"]),
-    R.always(R.find(R.propEq("id", props.router.query.book))(state.Books.data)),
-    R.always({})
-  )(props)
-});
+const withLoading = data =>
+  R.ifElse(R.isNil, R.always(<>Loading</>), R.always(<PostPage {...data} />))(
+    data
+  );
 
 export default Index;
