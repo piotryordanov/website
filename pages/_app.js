@@ -7,6 +7,8 @@ import withRedux from "next-redux-wrapper";
 import { updateBooks } from "../data/reducers/Books.js";
 import makeStore from "../data/store.js";
 
+import "./epub-zen.css";
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     return {

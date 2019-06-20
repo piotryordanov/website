@@ -1,21 +1,16 @@
 @font-face {
   font-family: 'Bookerly';
-  src: url('static/fonts/Bookerly/Bookerly-Regular.woff')  format('truetype'),
-       url('static/fonts/Bookerly/Bookerly-RegularItalic.woff')  format('truetype'),
-       url('static/fonts/Bookerly/Bookerly-Bold.woff')  format('truetype'),
-       url('static/fonts/Bookerly/Bookerly-BoldItalic.woff')  format('truetype');
+  src: url('/static/fonts/Bookerly/Bookerly-Regular.woff')  format('truetype'),
+       url('/static/fonts/Bookerly/Bookerly-RegularItalic.woff')  format('truetype'),
+       url('/static/fonts/Bookerly/Bookerly-Bold.woff')  format('truetype'),
+       url('/static/fonts/Bookerly/Bookerly-BoldItalic.woff')  format('truetype');
 }
 @font-face {
   font-family: 'BookFont';
-  src: url('static/fonts/Nitti/nittigrotesk-normaltt-v201-web.woff')  format('truetype'),
-       url('static/fonts/Nitti/nittigrotesk-boldtt-v201-web.woff')  format('truetype'),
-       url('static/fonts/Nitti/nittigrotesk-normalitalictt-v201-web.woff')  format('truetype');
+  src: url('/static/fonts/Nitti/nittigrotesk-normaltt-v201-web.woff')  format('truetype'),
+       url('/static/fonts/Nitti/nittigrotesk-boldtt-v201-web.woff')  format('truetype'),
+       url('/static/fonts/Nitti/nittigrotesk-normalitalictt-v201-web.woff')  format('truetype');
 }
-
-
-/*
- Steve Default
- */
 
 .zen.metrics {
   margin: auto;
@@ -229,10 +224,11 @@ p.dialogue:first-child:first-letter {
 
 .zen pre {
 	white-space: pre-wrap;
+    font-size: 19px;
 }
 
 .zen code {
-	color: #000;
+	color: #8a8686;
 	white-space: pre-wrap;
 }
 
@@ -261,7 +257,7 @@ hr::after {
 }
 
 @media (max-width: 480px) {
-  .zen p, .zen li {
+  .zen p, .zen li, .zen pre {
     font-size: 15px;
     line-height: 1.6;
   }
@@ -289,24 +285,4 @@ hr::after {
   background: #f2f2f2;
   padding: 10px 0px;
   margin: 20px 0px;
-}
-
-
-
-.CodeMirror pre {
-  font-size: 19px;
-  line-height: 32px;
-  font-family: bookFont;
-}
-.CodeMirror {
-  border: none;
-  background: transparent;
-}
-
-
-#buttons button {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin: 5px;
 }
