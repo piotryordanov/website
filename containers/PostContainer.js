@@ -4,7 +4,6 @@ import { compose, connect } from "react-redux";
 import * as R from "ramda";
 
 import PostPage from "../components/PostPage";
-
 const getContent = R.pipe(
   R.remove(0, 3),
   R.join("\n")
@@ -18,11 +17,12 @@ const getSoundtrack = R.pipe(
   }
 );
 
-const parseMD = (md, setMarkdown) =>
+const parseMD = (md, setMarkdown, title) =>
   setMarkdown(
     R.pipe(
       R.split("\n"),
       md => ({
+        title: title,
         content: getContent(md),
         date: R.take(1, md)[0],
         soundtrack: getSoundtrack(md)
@@ -37,7 +37,9 @@ const Index = props => {
     const query = props.router.query;
     axios
       .get(`/getMD/${query.book}/${query.slug}`)
-      .then(response => parseMD(response.data, setMarkdown));
+      .then(response =>
+        parseMD(response.data, setMarkdown, props.router.query.slug)
+      );
   }, "");
   return withLoading(markdown);
 };
