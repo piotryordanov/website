@@ -34,7 +34,7 @@ const renderLogo = props =>
     R.always(
       <Image
         mr={2}
-        width={"18px"}
+        width={"26px"}
         src={`/static/logos/${props.router.query.book}.svg`}
         borderRadius={8}
       />

@@ -24,7 +24,7 @@ export default withZoom(() => (
           Hi, I'm Piotr Yordanov
         </Text>
         <Text textAlign="center" fontSize={15} width={1}>
-          I'm passionate about telling stories using words.
+          Developper, Trader, Entrepreneur, Writer, Musician!
         </Text>
       </Flex>
     </Box>

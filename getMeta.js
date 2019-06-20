@@ -14,8 +14,12 @@ files.forEach(function(file) {
 });
 console.log(bookDirectories);
 bookDirectories.map(function(dir) {
-  var file = fs.readFileSync(path.join(directoryPath, dir) + "/meta.json");
-  books.push(JSON.parse(file));
+  var file = JSON.parse(
+    fs.readFileSync(path.join(directoryPath, dir) + "/meta.json")
+  );
+  if (file.published == "true") {
+    books.push(file);
+  }
 });
 
 exports.getMeta = function() {

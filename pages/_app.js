@@ -7,6 +7,20 @@ import withRedux from "next-redux-wrapper";
 import { updateBooks } from "../data/reducers/Books.js";
 import makeStore from "../data/store.js";
 
+import * as R from "ramda";
+
+import "./epub-zen.css";
+import ProgressBar from "react-styled-clickable-progress-bar";
+
+const renderProgressBar = () => {
+  if (typeof window !== "undefined") {
+    if (window.location.pathname.indexOf("post") > 0) {
+      return <ProgressBar />;
+    }
+  }
+  return <></>;
+};
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     return {
@@ -27,6 +41,7 @@ class MyApp extends App {
     return (
       <Container>
         <Provider store={store}>
+          {renderProgressBar()}
           <Component {...pageProps} />
         </Provider>
       </Container>

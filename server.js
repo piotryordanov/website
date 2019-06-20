@@ -1,8 +1,10 @@
 const express = require("express");
 const next = require("next");
 const getMeta = require("./getMeta");
+const getMD = require("./getMD");
 
 const dev = process.env.NODE_ENV !== "production";
+
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
@@ -24,6 +26,10 @@ app
 
     server.get("/getmeta", (req, res) => {
       res.json(getMeta.getMeta());
+    });
+
+    server.get("/getMD/:book/:slug", (req, res) => {
+      res.send(getMD.getMD(req));
     });
 
     server.get("*", (req, res) => {
