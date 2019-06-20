@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { compose, connect } from "react-redux";
 import * as R from "ramda";
 
 import PostPage from "../components/PostPage";
 
-const withLoading = props =>
-  R.ifElse(
-    R.isNil,
-    R.always(<>Loading</>),
-    R.always(<PostPage {...props.data} />)
-  )(props.data);
+const withLoading = data =>
+  R.ifElse(R.isNil, R.always(<>Loading</>), R.always(<PostPage data={data} />))(
+    data
+  );
 
-const Index = props => withLoading(props);
+const Index = props => {
+  const [markdown, setMarkdown] = useState("");
+
+  useEffect(() => {
+    const query = props.router.query;
+    axios
+      .get(`/getMD/${query.book}/${query.slug}`)
+      .then(response => setMarkdown(response.data));
+  }, "");
+  return withLoading(markdown);
+};
 
 const mapStateToProps = (state, props) => ({
   data: R.ifElse(
@@ -21,4 +30,4 @@ const mapStateToProps = (state, props) => ({
   )(props)
 });
 
-export default connect(mapStateToProps)(Index);
+export default Index;
