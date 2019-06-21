@@ -21,12 +21,10 @@ const withLayout = Page => props => (
       <Box width={1}>
         <HeaderContainer />
       </Box>
-      <Box width={1}>
-        <Box py={0.5} px={2} m={"auto"} width={[1, 1 / 2, 1, 1040]}>
-          <Page {...props} />
-        </Box>
+      <Box py={0.5} px={2} m="auto" width={[1, 1040]}>
+        <Page {...props} />
       </Box>
-      <Box width={1}>
+      <Box m="auto" width={[1, 1040]}>
         <Footer />
       </Box>
     </Flex>

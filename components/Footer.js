@@ -9,10 +9,11 @@ import withHoverCursor from "./withHoverCursor";
 
 // ============================
 // Components
-const FooterText = withHoverCursor(styled(Text)`
-  font-family: Montserrat, sans-serif;
-  margin: 0px 5px;
-`);
+const FooterText = withHoverCursor(props => (
+  <Text fontSize={[0, 1]} mx={"5px"}>
+    {props.children}
+  </Text>
+));
 
 // ============================
 // Links
@@ -30,7 +31,9 @@ const items = links.map(curr => (
   <Link key={curr.name} href={curr.href}>
     <Flex>
       <FooterText>{curr.name}</FooterText>
-      <div styles={{ color: "#aeaeae" }}>/</div>
+      <Box fontSize={[0, 1]} color="#aeaeae">
+        /
+      </Box>
     </Flex>
   </Link>
 ));
@@ -40,9 +43,13 @@ const items = links.map(curr => (
 export default withZoom(() => {
   return (
     <Box py={2} px={2} m={"auto"} width={[1, 1, 1, 1040]}>
-      <Flex justifyContent="space-between">
-        <FooterText>© 2019 Piotr Yordanov</FooterText>
-        <Flex>{items}</Flex>
+      <Flex justifyContent="space-between" flexWrap="wrap">
+        <Box width={[1, 3 / 4]} order={1}>
+          <Flex justifyContent="flex-end">{items}</Flex>
+        </Box>
+        <Box width={[1, "150px"]} order={0}>
+          <FooterText>© 2019 Piotr Yordanov</FooterText>
+        </Box>
       </Flex>
     </Box>
   );

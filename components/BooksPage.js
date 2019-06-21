@@ -8,19 +8,18 @@ import Divider from "../components/Divider";
 
 const renderChapterCards = props =>
   R.pipe(
-    R.tap(console.log),
     R.prop("posts"),
     R.defaultTo([]),
-    R.map(post => {
-      return <PostCard key={post} title={post} />;
-    })
+    R.map(post => (
+      <Box mb={20} p={[0, 20]} width={[1, 1, 1 / 2]}>
+        <PostCard key={post} title={post} />
+      </Box>
+    ))
   )(props);
 
 const BooksPage = props => (
   <Flex mt={3} flexWrap="wrap">
-    <Box mb={20} p={[0, 20]} width={1}>
-      <Flex justifyContent="center">{renderChapterCards(props)}</Flex>
-    </Box>
+    {renderChapterCards(props)}
   </Flex>
 );
 

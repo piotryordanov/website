@@ -9,7 +9,6 @@ const Card = withHoverCursor(styled.div`
   height: 400px;
   margin: 20px;
   position: relative;
-  transition: all 300ms ease-in-out;
 `);
 const BackgroundImage = styled.div`
   width: 100%;
