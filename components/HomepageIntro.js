@@ -21,7 +21,7 @@ export default withZoom(() => (
     <Box mx={2}>
       <Flex flexWrap="wrap">
         <Text textAlign="center" fontSize={22} fontWeight="bold" width={1}>
-          Hi, I'm Piotr Yordanov>
+          Hi, I'm Piotr Yordanov
         </Text>
         <Text textAlign="center" fontSize={15} width={1}>
           Developper, Trader, Entrepreneur, Writer, & Musician.

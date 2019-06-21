@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Flex } from "rebass";
+import { compose } from "redux";
 import { connect } from "react-redux";
 import { createGlobalStyle } from "styled-components";
 
@@ -8,6 +9,7 @@ import Footer from "./Footer";
 
 import Fonts from "./Fonts";
 import GlobalStyles from "./GlobalStyles";
+import withTheme from "./withTheme";
 
 const withLayout = Page => props => (
   <>
@@ -28,4 +30,7 @@ const withLayout = Page => props => (
     </Flex>
   </>
 );
-export default withLayout;
+export default compose(
+  withTheme,
+  withLayout
+);

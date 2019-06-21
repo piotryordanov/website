@@ -3,9 +3,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import App, { Container } from "next/app";
 import withRedux from "next-redux-wrapper";
-import { ThemeProvider } from "styled-components";
 import makeStore from "../data/store.js";
-import theme from "./theme.js";
 
 import "./epub-zen.css";
 import ProgressBar from "react-styled-clickable-progress-bar";
@@ -37,9 +35,7 @@ class MyApp extends App {
       <Container>
         <Provider store={store}>
           {renderProgressBar()}
-          <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
-          </ThemeProvider>
+          <Component {...pageProps} />
         </Provider>
       </Container>
     );
