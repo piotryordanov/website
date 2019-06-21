@@ -5,6 +5,9 @@ import App, { Container } from "next/app";
 import withRedux from "next-redux-wrapper";
 import makeStore from "../data/store.js";
 
+import ProgressBar from "../components/ProgressBar";
+
+import "../static/epub-zen.css";
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     return {
@@ -22,6 +25,7 @@ class MyApp extends App {
     return (
       <Container>
         <Provider store={store}>
+          <ProgressBar />
           <Component {...pageProps} />
         </Provider>
       </Container>
