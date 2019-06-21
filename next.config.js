@@ -2,5 +2,13 @@
 const withCSS = require("@zeit/next-css");
 
 module.exports = withCSS({
-  /* config options here */
+  exportPathMap: async function(
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      "/": { page: "/index" },
+      "/privacy": { page: "/privacy" }
+    };
+  }
 });
