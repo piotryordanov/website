@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Link from "next/link";
 import { Text, Box, Flex } from "rebass";
+import Link from "./Link";
+console.log(Link);
 
 import withZoom from "./withZoom";
 import withHoverCursor from "./withHoverCursor";
@@ -16,8 +17,8 @@ const FooterText = withHoverCursor(styled(Text)`
 // ============================
 // Links
 const links = [
-  { name: "Terms And Conditions", href: "terms-and-conditions" },
-  { name: "Privacy Policy", href: "privacy" }
+  { name: "Terms And Conditions", href: "/terms-and-conditions" },
+  { name: "Privacy Policy", href: "/privacy" }
 ];
 {
   /* { name: "Contact", href: "contact" }, */
