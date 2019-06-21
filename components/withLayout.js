@@ -3,6 +3,7 @@ import { Box, Flex } from "rebass";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { createGlobalStyle } from "styled-components";
+import { withRouter } from "next/router";
 
 import HeaderContainer from "../containers/HeaderContainer";
 import Footer from "./Footer";
@@ -10,6 +11,7 @@ import Footer from "./Footer";
 import Fonts from "./Fonts";
 import GlobalStyles from "./GlobalStyles";
 import withTheme from "./withTheme";
+import withMeta from "./withMeta";
 
 const withLayout = Page => props => (
   <>
@@ -31,6 +33,8 @@ const withLayout = Page => props => (
   </>
 );
 export default compose(
+  withRouter,
   withTheme,
+  withMeta,
   withLayout
 );

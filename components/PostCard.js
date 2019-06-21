@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import * as R from "ramda";
-import Link from "next/link";
+import { Link } from "rebass";
 import withZoom from "./withZoom";
 import withHoverCursor from "./withHoverCursor";
 

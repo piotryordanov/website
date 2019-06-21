@@ -4,7 +4,7 @@ import { Flex, Box } from "rebass";
 import BookCard from "../components/BookCard";
 
 const renderBooks = props =>
-  props.Books.map(book => <BookCard key={book.title} {...book} />);
+  props.meta.map(book => <BookCard key={book.title} {...book} />);
 
 const Index = props => (
   <Flex mt={3} flexWrap="wrap">

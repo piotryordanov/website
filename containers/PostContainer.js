@@ -34,13 +34,12 @@ const Index = props => {
   const [markdown, setMarkdown] = useState("");
 
   useEffect(() => {
-    const query = props.router.query;
-      console.log(props);
+    const URL = decodeURIComponent(
+      R.last(R.split("/post/", props.router.asPath))
+    );
     axios
-      .get(`/static/posts/${query.slug}.md`)
-      .then(response =>
-        parseMD(response.data, setMarkdown, props.router.query.slug)
-      );
+      .get(`/static/posts/${URL}.md`)
+      .then(response => parseMD(response.data, setMarkdown, URL));
   }, "");
   return withLoading(markdown);
 };
