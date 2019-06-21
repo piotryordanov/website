@@ -7,7 +7,7 @@ import makeStore from "../data/store.js";
 
 import ProgressBar from "../components/ProgressBar";
 
-import "./epub-zen.css";
+import "../static/epub-zen.css";
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     return {

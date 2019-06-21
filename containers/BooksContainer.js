@@ -6,20 +6,29 @@ import BooksPage from "../components/BooksPage";
 
 const withLoading = props =>
   R.ifElse(
-    R.isNil,
+    R.equals(0),
     R.always(<>Loading</>),
     R.always(<BooksPage {...props.data} />)
-  )(props.data);
+  )(R.length(props.posts));
 
 const Index = props => withLoading(props);
 
 const mapStateToProps = (state, props) => ({
-  data: R.ifElse(
+  posts: R.ifElse(
     R.hasPath(["router", "query", "book"]),
-    R.always(
-      R.find(R.propEq("title", props.router.query.book))(state.Books.books)
-    ),
-    R.always({})
+    () => {
+      const d = R.pick(
+        "posts",
+        R.find(R.propEq("title", props.router.query.book))(state.Books)
+      );
+      console.log(d);
+      return d;
+      return [];
+    },
+    () => {
+      console.log("here");
+      return [];
+    }
   )(props)
 });
 

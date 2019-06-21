@@ -32,4 +32,4 @@ bookDirectories.map(function(dir) {
   meta.push(temp);
 });
 
-fs.writeFileSync("./static/meta.json", JSON.stringify({ books: meta }));
+fs.writeFileSync("./static/meta.json", JSON.stringify(meta));

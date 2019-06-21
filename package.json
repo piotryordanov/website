@@ -7,8 +7,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node server.js",
-    "build": "next build",
-    "export": "next export",
+    "build": "next build && next export",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker": "sudo docker-compose down; sudo docker-compose up --build"
@@ -51,8 +50,10 @@
     "babel-plugin-styled-components": "^1.8.0",
     "eslint-config-xo": "^0.26.0"
   },
- "nodemonConfig": {
-    "ignore": ["static/*"]
+  "nodemonConfig": {
+    "ignore": [
+      "static/*"
+    ]
   },
   "xo": {
     "extends": "xo-react",

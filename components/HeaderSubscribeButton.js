@@ -5,14 +5,16 @@ import { Text, Flex } from "rebass";
 import withZoom from "./withZoom";
 import withHoverCursor from "./withHoverCursor";
 
-export default withHoverCursor(() => (
+export default () => (
   <Flex alignItems="center">
-    {withZoom(() => (
-      <Link href="subscribe">
-        <Text fontSize="1" fontWeight={700}>
-          SUBSCRIBE
-        </Text>
-      </Link>
-    ))()}
+    {withHoverCursor(
+      withZoom(() => (
+        <Link href="about">
+          <Text fontSize="1" fontWeight={700}>
+            ABOUT
+          </Text>
+        </Link>
+      ))
+    )()}
   </Flex>
-));
+);

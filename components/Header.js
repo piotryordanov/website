@@ -13,6 +13,7 @@ export default props => (
       <Box py={0.5} px={2} m={"auto"} width={[1, 1, 1, 1040]}>
         <Flex justifyContent="space-between">
           <HeaderLogo {...props} />
+          <HeaderSubscribeButton />
         </Flex>
       </Box>
     </Navbar>

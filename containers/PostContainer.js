@@ -35,6 +35,7 @@ const Index = props => {
 
   useEffect(() => {
     const query = props.router.query;
+      console.log(props);
     axios
       .get(`/static/posts/${query.slug}.md`)
       .then(response =>
