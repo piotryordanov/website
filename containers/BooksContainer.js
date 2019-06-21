@@ -3,35 +3,24 @@ import { compose, connect } from "react-redux";
 import * as R from "ramda";
 
 import BooksPage from "../components/BooksPage";
+import withLoading from "../components/withLoading";
 
-const withLoading = props =>
-  R.ifElse(
-    R.equals(0),
-    R.always(<>Loading</>),
-    R.always(<BooksPage {...props.data} />)
-  )(R.length(props.posts));
-
-const Index = props => withLoading(props);
-
-const mapStateToProps = (state, props) => {
-  console.log("props");
-  return { posts: [] };
-  return {
-    posts: R.ifElse(
-      R.hasPath(["router", "query", "book"]),
-      () => {
-        const d = R.pick(
-          "posts",
-          R.find(R.propEq("title", props.router.query.book))(state.Books)
-        );
-        return [];
-      },
-      () => {
-        console.log("here");
-        return [];
-      }
-    )(props)
-  };
+const Index = props => {
+  const d = R.ifElse(
+    R.hasPath(["router", "asPath"]),
+    () =>
+      R.pipe(
+        R.find(
+          R.propEq(
+            "title",
+            decodeURIComponent(R.last(R.split("/book/", props.router.asPath)))
+          )
+        ),
+        R.pick(["posts"])
+      )(props.meta),
+    R.always([])
+  )(props);
+  return <BooksPage {...d} />;
 };
 
-export default connect(mapStateToProps)(Index);
+export default withLoading(Index, ["posts"]);

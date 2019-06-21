@@ -7,7 +7,14 @@ import PostCard from "../components/PostCard";
 import Divider from "../components/Divider";
 
 const renderChapterCards = props =>
-  props.posts.map(post => <PostCard key={post} title={post} />);
+  R.pipe(
+    R.tap(console.log),
+    R.prop("posts"),
+    R.defaultTo([]),
+    R.map(post => {
+      return <PostCard key={post} title={post} />;
+    })
+  )(props);
 
 const BooksPage = props => (
   <Flex mt={3} flexWrap="wrap">

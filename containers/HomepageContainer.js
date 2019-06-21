@@ -5,4 +5,4 @@ import * as R from "ramda";
 import Homepage from "../components/Homepage";
 import withLoading from "../components/withLoading";
 
-export default withLoading(Homepage, "meta");
+export default withLoading(Homepage, ["meta"]);
