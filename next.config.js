@@ -13,7 +13,6 @@ meta.map(function(book) {
     pages["/post/" + post] = { page: "/post" };
   });
 });
-console.log(pages);
 
 module.exports = withCSS({
   exportPathMap: async function(

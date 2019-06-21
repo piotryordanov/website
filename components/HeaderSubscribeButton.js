@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import { Link } from "rebass";
 import styled from "styled-components";
 import { Text, Flex } from "rebass";
 import withZoom from "./withZoom";
@@ -9,7 +9,7 @@ export default () => (
   <Flex alignItems="center">
     {withHoverCursor(
       withZoom(() => (
-        <Link href="about">
+        <Link color="black" css={{ textDecoration: "none" }} href="/about">
           <Text fontSize="1" fontWeight={700}>
             ABOUT
           </Text>
