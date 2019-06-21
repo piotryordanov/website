@@ -1,18 +1,15 @@
 import styled from "styled-components";
 import Link from "next/link";
 import withZoom from "./withZoom";
+import withHoverCursor from "./withHoverCursor";
 
-const Card = styled.div`
+const Card = withHoverCursor(styled.div`
   width: 300px;
   height: 400px;
   margin: 20px;
   position: relative;
   transition: all 300ms ease-in-out;
-  :hover {
-    cursor: pointer;
-    padding: 5px;
-  }
-`;
+`);
 const BackgroundImage = styled.div`
   width: 100%;
   height: 100%;

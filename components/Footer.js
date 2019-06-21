@@ -4,26 +4,14 @@ import Link from "next/link";
 import { Text, Box, Flex } from "rebass";
 
 import withZoom from "./withZoom";
-import Navbar from "./Navbar";
-import HeaderLogo from "./HeaderLogo";
-import HeaderSubscribeButton from "./HeaderSubscribeButton";
+import withHoverCursor from "./withHoverCursor";
 
 // ============================
 // Components
-const FooterText = styled(Text)`
+const FooterText = withHoverCursor(styled(Text)`
   font-family: Montserrat, sans-serif;
   margin: 0px 5px;
-`;
-
-const FooterTextClickable = styled(FooterText)`
-  :hover {
-    cursor: pointer;
-  }
-`;
-
-const Seperator = styled.div`
-  color: #aeaeae;
-`;
+`);
 
 // ============================
 // Links
@@ -36,8 +24,8 @@ const links = [
 const items = links.map(curr => (
   <Link key={curr.name} href={curr.href}>
     <Flex>
-      <FooterTextClickable>{curr.name}</FooterTextClickable>
-      <Seperator>/</Seperator>
+      <FooterText>{curr.name}</FooterText>
+      <div styles={{ color: "#aeaeae" }}>/</div>
     </Flex>
   </Link>
 ));

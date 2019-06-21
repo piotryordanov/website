@@ -3,7 +3,7 @@ import { Box, Flex } from "rebass";
 import { connect } from "react-redux";
 import { createGlobalStyle } from "styled-components";
 
-import Header from "./Header";
+import HeaderContainer from "../containers/HeaderContainer";
 import Footer from "./Footer";
 
 import Fonts from "./Fonts";
@@ -15,7 +15,7 @@ const withLayout = Page => props => (
     <GlobalStyles />
     <Flex flexWrap="wrap">
       <Box width={1}>
-        <Header />
+        <HeaderContainer />
       </Box>
       <Box width={1}>
         <Box py={0.5} px={2} m={"auto"} width={[1, 1 / 2, 1, 1040]}>

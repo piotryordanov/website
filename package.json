@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker": "sudo docker-compose down; sudo docker-compose up --build"

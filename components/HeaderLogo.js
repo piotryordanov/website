@@ -1,78 +1,25 @@
-import Link from "next/link";
-import styled from "styled-components";
-import { Image, Flex, Text } from "rebass";
-import withZoom from "./withZoom";
+import React from "react";
 import * as R from "ramda";
-import { withRouter } from "next/router";
+import Link from "next/link";
+import { Image, Flex, Text } from "rebass";
 
-const Author = styled(Text)`
-  font-size: 15px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #333;
-`;
+import withZoom from "./withZoom";
+import withHoverCursor from "./withHoverCursor";
 
-const Subtitle = styled(Text)`
-  font-size: 12px;
-  color: #4c4c4c;
-  font-weight: 700;
-  text-transform: none;
-  white-space: nowrap !important;
-  text-overflow: ellipsis !important;
-  overflow: hidden !important;
-`;
-
-const ClickableLink = styled.div`
-  :hover {
-    cursor: pointer;
-  }
-`;
-
-const renderLogo = props =>
-  R.ifElse(
-    R.hasPath(["router", "query", "book"]),
-    R.always(
-      <Image
-        mr={2}
-        width={"26px"}
-        src={`/static/logos/${props.router.query.book}.svg`}
-        borderRadius={8}
-      />
-    ),
-    R.always(
-      <Image mr={2} width={"26px"} src="/static/logo.svg" borderRadius={8} />
-    )
-  )(props);
-const renderAuthor = props =>
-  R.ifElse(
-    R.hasPath(["router", "query", "book"]),
-    R.always(
-      <>
-        <Author mb={-0.5} width={1}>
-          {props.router.query.book}
-        </Author>
-        <Subtitle width={1}>By Piotr Yordanov</Subtitle>
-      </>
-    ),
-    R.always(
-      <>
-        <Author mb={-0.5} width={1}>
-          PIOTR YORDANOV
-        </Author>
-        <Subtitle width={1}>Author, Story Teller</Subtitle>
-      </>
-    )
-  )(props);
-
-const Index = props => (
-  <ClickableLink>
-    <Link href="/">
-      <Flex>
-        {renderLogo(props)}
-        <Flex flexWrap="wrap">{renderAuthor(props)}</Flex>
+const Index = withHoverCursor(props => (
+  <Link href="/">
+    <Flex>
+      <Image mr={2} width={"26px"} src={props.logo} borderRadius={8} />
+      <Flex flexWrap="wrap">
+        <Text fontSize={15} fontWeight={700} color="#333" mb={-0.5} width={1}>
+          {props.text.author}
+        </Text>
+        <Text fontSize={12} fontWeight={700} color="#4c4c4c" width={1}>
+          {props.text.subtitle}
+        </Text>
       </Flex>
-    </Link>
-  </ClickableLink>
-);
+    </Flex>
+  </Link>
+));
 
-export default withRouter(withZoom(Index));
+export default withZoom(Index);

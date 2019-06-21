@@ -3,24 +3,16 @@ import Link from "next/link";
 import styled from "styled-components";
 import { Text, Flex } from "rebass";
 import withZoom from "./withZoom";
+import withHoverCursor from "./withHoverCursor";
 
-const SubscribeButton = styled(Text)`
-  font-size: 15px;
-  font-weight: 700;
-  text-transform: uppercase;
-  :hover {
-    cursor: pointer;
-  }
-`;
-
-const Index = withZoom(() => (
-  <Link href="subscribe">
-    <SubscribeButton>Subscribe</SubscribeButton>
-  </Link>
-));
-
-export default () => (
+export default withHoverCursor(() => (
   <Flex alignItems="center">
-    <Index />
+    {withZoom(() => (
+      <Link href="subscribe">
+        <Text fontSize={15} fontWeight={700}>
+          SUBSCRIBE
+        </Text>
+      </Link>
+    ))()}
   </Flex>
-);
+));
