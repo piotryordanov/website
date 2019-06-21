@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import * as R from "ramda";
 import Link from "next/link";
 import withZoom from "./withZoom";
 import withHoverCursor from "./withHoverCursor";
@@ -22,7 +23,8 @@ const BackgroundImage = styled.div`
   background-position: 50% 50% !important;
   background-size: cover;
   filter: brightness(70%);
-  background-image: ${props => `url(/static/covers/${props.title}.jpg)`};
+  background-image: ${props =>
+    `url(/static/posts/${R.replace(/ /g, "\\ ", props.title)}.jpg)`};
   border-radius: 5px;
 `;
 const Text = styled.div`
