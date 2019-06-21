@@ -13,7 +13,7 @@ const withLoading = props =>
 
 const Index = props => withLoading(props);
 function mapStateToProps(state) {
-  return { Books: state.Books.data };
+  return { Books: state.Books.books };
 }
 
 export default connect(mapStateToProps)(Index);

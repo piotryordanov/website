@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import * as R from "ramda";
 import Link from "next/link";
 import withZoom from "./withZoom";
 import withHoverCursor from "./withHoverCursor";
@@ -22,7 +23,8 @@ const BackgroundImage = styled.div`
   background-position: 50% 50% !important;
   background-size: cover;
   filter: brightness(70%);
-  background-image: ${props => `url(/static/covers/${props.id}.jpg)`};
+  background-image: ${props =>
+    `url(/static/posts/${R.replace(/ /g, "\\ ", props.title)}.jpg)`};
   border-radius: 5px;
 `;
 const Text = styled.div`
@@ -38,7 +40,7 @@ const Text = styled.div`
 `;
 
 export default withZoom(props => (
-  <Link href={`/book/${props.id}/post/${props.title}`}>
+  <Link href={`/post/${props.title}`}>
     <Card>
       <BackgroundImage {...props} />
       <Text>{props.title}</Text>

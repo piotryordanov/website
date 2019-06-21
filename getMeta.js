@@ -4,24 +4,32 @@ var fs = require("fs");
 
 //joining path of directory
 var directoryPath = path.join(__dirname, "../../Dropbox/writing/equanimity");
+
 const bookDirectories = [];
-const books = [];
-var files = fs.readdirSync(directoryPath);
-files.forEach(function(file) {
+
+fs.readdirSync(directoryPath).forEach(function(file) {
   if (fs.lstatSync(path.join(directoryPath, file)).isDirectory()) {
-    bookDirectories.push(file);
-  }
-});
-console.log(bookDirectories);
-bookDirectories.map(function(dir) {
-  var file = JSON.parse(
-    fs.readFileSync(path.join(directoryPath, dir) + "/meta.json")
-  );
-  if (file.published == "true") {
-    books.push(file);
+    if (file != "drafts") {
+      bookDirectories.push(file);
+    }
   }
 });
 
-exports.getMeta = function() {
-  return books;
+const copyFile = function(dir, name) {
+  fs.createReadStream(path.join(dir, name)).pipe(
+    fs.createWriteStream(path.join("./static/posts/", name))
+  );
 };
+
+let meta = [];
+bookDirectories.map(function(dir) {
+  let PATH = path.join(directoryPath, dir);
+  let temp = { title: dir, posts: [] };
+  fs.readdirSync(PATH).map(function(file) {
+    copyFile(PATH, file);
+    temp.posts.push(file.split(".md")[0]);
+  });
+  meta.push(temp);
+});
+
+fs.writeFileSync("./static/meta.json", JSON.stringify({ books: meta }));
