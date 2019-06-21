@@ -36,7 +36,7 @@ const Index = props => {
   useEffect(() => {
     const query = props.router.query;
     axios
-      .get(`/getMD/${query.book}/${query.slug}`)
+      .get(`/static/posts/${query.slug}.md`)
       .then(response =>
         parseMD(response.data, setMarkdown, props.router.query.slug)
       );
