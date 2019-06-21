@@ -9,7 +9,7 @@ export default withHoverCursor(() => (
   <Flex alignItems="center">
     {withZoom(() => (
       <Link href="subscribe">
-        <Text fontSize={15} fontWeight={700}>
+        <Text fontSize="1" fontWeight={700}>
           SUBSCRIBE
         </Text>
       </Link>

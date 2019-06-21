@@ -4,8 +4,10 @@ import React from "react";
 import { Provider } from "react-redux";
 import App, { Container } from "next/app";
 import withRedux from "next-redux-wrapper";
+import { ThemeProvider } from "styled-components";
 import { updateBooks } from "../data/reducers/Books.js";
 import makeStore from "../data/store.js";
+import theme from "./theme.js";
 
 import * as R from "ramda";
 
@@ -42,7 +44,9 @@ class MyApp extends App {
       <Container>
         <Provider store={store}>
           {renderProgressBar()}
-          <Component {...pageProps} />
+          <ThemeProvider theme={theme}>
+            <Component {...pageProps} />
+          </ThemeProvider>
         </Provider>
       </Container>
     );

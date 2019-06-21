@@ -10,7 +10,7 @@ const renderBooks = props =>
 
 const Index = props => (
   <Flex mt={3} flexWrap="wrap">
-    <Box width={1}>
+    <Box mt={10} width={1}>
       <HomepageIntro />
       <Divider />
     </Box>

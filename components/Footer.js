@@ -17,10 +17,14 @@ const FooterText = withHoverCursor(styled(Text)`
 // Links
 const links = [
   { name: "Terms And Conditions", href: "terms-and-conditions" },
-  { name: "Privacy Policy", href: "privacy" },
-  { name: "Contact", href: "contact" },
-  { name: "Newsletter", href: "newsletter" }
+  { name: "Privacy Policy", href: "privacy" }
 ];
+{
+  /* { name: "Contact", href: "contact" }, */
+}
+{
+  /* { name: "Newsletter", href: "newsletter" } */
+}
 const items = links.map(curr => (
   <Link key={curr.name} href={curr.href}>
     <Flex>
@@ -32,11 +36,13 @@ const items = links.map(curr => (
 
 // ============================
 // Render
-export default withZoom(() => (
-  <Box py={2} px={2} m={"auto"} width={[1, 1 / 2, 1, 1040]}>
-    <Flex justifyContent="space-between">
-      <FooterText>© 2019 Piotr Yordanov</FooterText>
-      <Flex>{items}</Flex>
-    </Flex>
-  </Box>
-));
+export default withZoom(() => {
+  return (
+    <Box py={2} px={2} m={"auto"} width={[1, 1, 1, 1040]}>
+      <Flex justifyContent="space-between">
+        <FooterText>© 2019 Piotr Yordanov</FooterText>
+        <Flex>{items}</Flex>
+      </Flex>
+    </Box>
+  );
+});
