@@ -13,23 +13,25 @@ const withLoading = props =>
 
 const Index = props => withLoading(props);
 
-const mapStateToProps = (state, props) => ({
-  posts: R.ifElse(
-    R.hasPath(["router", "query", "book"]),
-    () => {
-      const d = R.pick(
-        "posts",
-        R.find(R.propEq("title", props.router.query.book))(state.Books)
-      );
-      console.log(d);
-      return d;
-      return [];
-    },
-    () => {
-      console.log("here");
-      return [];
-    }
-  )(props)
-});
+const mapStateToProps = (state, props) => {
+  console.log("props");
+  return { posts: [] };
+  return {
+    posts: R.ifElse(
+      R.hasPath(["router", "query", "book"]),
+      () => {
+        const d = R.pick(
+          "posts",
+          R.find(R.propEq("title", props.router.query.book))(state.Books)
+        );
+        return [];
+      },
+      () => {
+        console.log("here");
+        return [];
+      }
+    )(props)
+  };
+};
 
 export default connect(mapStateToProps)(Index);
