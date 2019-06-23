@@ -8,9 +8,7 @@ const renderBooks = props =>
 
 const Index = props => (
   <Flex mt={3} flexWrap="wrap">
-    <Box mb={20} width={1}>
-      <Flex justifyContent="center">{renderBooks(props)}</Flex>
-    </Box>
+    {renderBooks(props)}
   </Flex>
 );
 

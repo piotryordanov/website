@@ -10,7 +10,7 @@ import Headroom from "react-headroom";
 export default props => (
   <Headroom>
     <Navbar>
-      <Box py={0.5} px={2} m={"auto"} width={[1, 1, 1, 1040]}>
+      <Box py={0.5} px={2} m={"auto"} width={[1, 1040]}>
         <Flex justifyContent="space-between">
           <HeaderLogo {...props} />
           <HeaderSubscribeButton />
