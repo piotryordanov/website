@@ -1323,9 +1323,9 @@ babel-plugin-react-require@3.0.0:
   integrity sha1-Lk57RJa5OmVKHIAEInbeTk7rIOM=
 
 "babel-plugin-styled-components@>= 1", babel-plugin-styled-components@^1.8.0:
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.10.1.tgz#cc89ac5a13476ce675e13fbe53a826f9bb0ca4cd"
-  integrity sha512-F6R2TnPGNN6iuXCs0xQ+EsrunwNoWI55J5I8Pkd/+fzzbv1I4gFgTaZepMOVpLobYWU2XaLIm+73L0zD3CnOdQ==
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.10.2.tgz#0d9af9521ec99cf8e14182685162e09b119de176"
+  integrity sha512-gA67BkMbddFPkTjD2bBe7zE6NNEUNK/7A4uDxwSigA3h1+sL2b6mWhxPu9a5DKf+3TvmdoxvtJ4me2NE7k66Ng==
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.0.0"
     "@babel/helper-module-imports" "^7.0.0"
@@ -4630,9 +4630,9 @@ react-lifecycles-compat@^3.0.2:
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
 react-markdown@^4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-4.0.8.tgz#e3621b5becaac82a651008d7bc8390d3e4e438c0"
-  integrity sha512-Z6oa648rufvzyO0KwYJ/9p9AsdYGIluqK6OlpJ35ouJ8HPF0Ko1WDNdyymjDSHxNrkb7HDyEcIDJCQs8NlET5A==
+  version "4.0.9"
+  resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-4.0.9.tgz#663ee66fdaeb5cfac1129e82ac8a5e04fc87092c"
+  integrity sha512-zhf/E7eJtCIFulFtxXsHq8wzjjBH8oewmwchtNxWG0so4sVCaPhF+8PjGYGsLobp/HUuevTcTFIscvU36V/d4w==
   dependencies:
     html-to-react "^1.3.4"
     mdast-add-list-metadata "1.0.1"
@@ -4677,15 +4677,11 @@ react-ssr-prepass@1.0.2:
   dependencies:
     object-is "^1.0.1"
 
-react-styled-clickable-progress-bar@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-styled-clickable-progress-bar/-/react-styled-clickable-progress-bar-1.0.2.tgz#8f837200a10787b34d1ea2db8fe3e2d5a53cf0c9"
-  integrity sha512-5CPUzZdhYeLKbdb2uHiweFrjvvWhZo0rDiP81uWJKfpC0WkYllB0z/oIw04WFKcWnQEruvt6yMNuFPb46WCukw==
+react-styled-clickable-progress-bar@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/react-styled-clickable-progress-bar/-/react-styled-clickable-progress-bar-1.0.11.tgz#302541732370728fafb9fc5b8a217a9d60494679"
+  integrity sha512-P5q3bfaqvzTuiinZN3Iw4Ivu1+vumhaENkqOApV/QVD6uYZejqI15q3rJUyQn49Etj20vg/Uhn2EOJ2bKfTDsg==
   dependencies:
-    next "^8.1.0"
-    prop-types "^15.7.2"
-    react "^16.8.6"
-    react-dom "^16.8.6"
     styled-components "^4.3.2"
 
 react@^16.8.6:
