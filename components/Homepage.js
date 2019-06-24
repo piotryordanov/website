@@ -1,15 +1,15 @@
-import React from "react";
-import { Flex, Box } from "rebass";
+import React from 'react'
+import {Flex} from 'rebass'
 
-import BookCard from "../components/BookCard";
+import BookCard from './BookCard'
 
 const renderBooks = props =>
-  props.meta.map(book => <BookCard key={book.title} {...book} />);
+	props.meta.map(book => <BookCard key={book.title} {...book} />)
 
 const Index = props => (
-  <Flex mt={3} flexWrap="wrap">
-    {renderBooks(props)}
-  </Flex>
-);
+	<Flex mt={3} flexWrap="wrap">
+		{renderBooks(props)}
+	</Flex>
+)
 
-export default Index;
+export default Index

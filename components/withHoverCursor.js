@@ -1,14 +1,15 @@
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
 const Component = styled.div`
-  :hover {
-    cursor: pointer;
-  }
-`;
+	:hover {
+		cursor: pointer;
+	}
+`
 export default Child => {
-  return props => (
-    <Component>
-      <Child {...props} />
-    </Component>
-  );
-};
+	return props => (
+		<Component>
+			<Child {...props} />
+		</Component>
+	)
+}
