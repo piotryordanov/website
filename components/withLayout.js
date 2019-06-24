@@ -15,14 +15,19 @@ const withLayout = Page => props => (
 	<>
 		<Fonts />
 		<GlobalStyles />
-		<Flex flexWrap="wrap">
+		<Flex
+			flexDirection="column"
+			css={{
+				'min-height': `${window.innerHeight}px`
+			}}
+		>
 			<Box width={1}>
 				<HeaderContainer />
 			</Box>
-			<Box py={0.5} px={2} m="auto" width={[1, 1040]}>
+			<Box py={0.5} px={2} m="auto" width={[1, 1, 1, 1040]}>
 				<Page {...props} />
 			</Box>
-			<Box m="auto" width={[1, 1040]}>
+			<Box p="10px" mx="auto" width={[1, 1, 1, 1040]}>
 				<Footer />
 			</Box>
 		</Flex>

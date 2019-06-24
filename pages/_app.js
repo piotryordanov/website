@@ -23,13 +23,16 @@ class MyApp extends App {
 
 	render() {
 		const {Component, pageProps, store} = this.props
-		return (
+		// eslint-disable-next-line no-undef
+		return typeof window === 'object' ? (
 			<Container>
 				<Provider store={store}>
 					<ProgressBar />
 					<Component {...pageProps} />
 				</Provider>
 			</Container>
+		) : (
+			<></>
 		)
 	}
 }

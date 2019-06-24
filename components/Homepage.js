@@ -7,7 +7,7 @@ const renderBooks = props =>
 	props.meta.map(book => <BookCard key={book.title} {...book} />)
 
 const Index = props => (
-	<Flex mt={3} flexWrap="wrap">
+	<Flex mt={3} flexWrap="wrap" justifyContent="center">
 		{renderBooks(props)}
 	</Flex>
 )

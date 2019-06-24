@@ -6,8 +6,8 @@ import withZoom from './withZoom'
 import withHoverCursor from './withHoverCursor'
 
 const Card = withHoverCursor(styled.div`
-	width: 300px;
-	height: 400px;
+	width: 200px;
+	height: 300px;
 	margin: 20px;
 	position: relative;
 `)
