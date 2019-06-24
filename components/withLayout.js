@@ -1,3 +1,4 @@
+/* eslint no-undef: 0 */
 import React from 'react'
 import {Box, Flex} from 'rebass'
 import {compose} from 'redux'
