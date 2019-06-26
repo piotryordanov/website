@@ -32,7 +32,8 @@ Deadmau5 - Arguru - https://www.youtube.com/watch?v=hLALcdmxbh4
 
   The footer contains a list of the standard pages in a website. Privacy, TOC, contact, etc...
   In my initial code, I wrote the Boxes for each of these hyperlinks, but again, this sets a bad coding habit precedent. Instead, I stored these components inside an array and looped over it.
-  ```
+
+  ```jsx
 const links = [
   { name: "Terms And Conditions", href: "terms-and-conditions" },
   { name: "Privacy Policy", href: "privacy" },
@@ -62,7 +63,8 @@ const items = links.map(curr => (
 
   This proved to be critical.
   Remember when earlier I insisted to extract components out of layouts, for example with `HeaderLogo`? Well, this disciplined practice rewarded me with a sweet gift. All I needed to do was wrap the logo with the animation HOC like so:
-  ```
+
+  ```jsx
   import withZoom from "./withZoom"
 
   const Index = () =>
