@@ -9,7 +9,6 @@ const renderBooks = props =>
 const Index = props => (
 	<Flex mt={3} flexWrap="wrap" justifyContent="center">
 		{renderBooks(props)}
-		hello world
 	</Flex>
 )
 
