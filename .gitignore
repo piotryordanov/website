@@ -4,5 +4,5 @@ out/
 
 static/meta.json
 static/posts/*.md
-static/logos/*.jpg
+static/logos/*
 static/covers/*.jpg
