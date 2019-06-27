@@ -16,6 +16,7 @@ meta.map(book => {
 })
 
 module.exports = withCSS({
+	target: 'serverless',
 	// eslint-disable-next-line no-unused-vars
 	async exportPathMap(defaultPathMap, {dev, dir, outDir, distDir, buildId}) {
 		return pages

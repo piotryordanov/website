@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "alias": "website",
-  "builds": [{ "src": "package.json", "use": "@now/next" }],
+  "name": "nextjs",
+  "builds": [
+    { "src": "./static/*", "use": "@now/static" },
+    { "src": "package.json", "use": "@now/next" }
+  ],
   "routes": [
-    { "src": "/book/(.*)", "dest": "/book" },
-    { "src": "/post/(.*)", "dest": "/post" },
-    { "src": "/(.*)", "dest": "/$1" }
+    { "src": "/post/(?<name>[^/]+)$", "dest": "/post?name=$name" },
+    { "src": "/book/(?<name>[^/]+)$", "dest": "/book?name=$name" }
   ]
 }

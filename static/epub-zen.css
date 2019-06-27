@@ -132,6 +132,7 @@
 }
 
 .zen p {
+  text-indent: 1em;
 	margin: 0;
 	text-align: justify;
   color: black;
