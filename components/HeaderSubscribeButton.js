@@ -9,8 +9,7 @@ export default () => (
 		{withHoverCursor(
 			withZoom(() => (
 				<Link href="/about">
-					<Text fontSize="1" fontWeight={700}>
-					</Text>
+					<Text fontSize="1" fontWeight={700} />
 				</Link>
 			))
 		)()}
