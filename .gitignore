@@ -1,3 +1,8 @@
 node_modules/
 .next/
 out/
+
+static/meta.json
+static/posts/*.md
+static/logos/*.jpg
+static/covers/*.jpg
