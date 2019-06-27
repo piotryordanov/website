@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Link} from 'rebass'
 import * as R from 'ramda'
+import Link from 'next/link'
 import withZoom from './withZoom'
 import withHoverCursor from './withHoverCursor'
 
@@ -41,7 +41,7 @@ const Text = styled.div`
 `
 
 export default withZoom(props => (
-	<Link href={`/book/${props.title}`}>
+	<Link href={`/book?name=${props.title}`} as={`/book/${props.title}`}>
 		<Card>
 			<BackgroundImage {...props} />
 			<Text>{props.title}</Text>

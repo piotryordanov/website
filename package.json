@@ -6,7 +6,7 @@
   "description": "An opiniated frontend boilerplate built on top of nextJS",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "now dev",
     "clean": "rm -rv out",
     "build": "next build",
     "export": "next export",
@@ -34,6 +34,7 @@
     "next": "^8.1.0",
     "next-redux-wrapper": "^3.0.0-alpha.3",
     "nextjs": "^0.0.3",
+    "now": "^15.6.1",
     "prop-types": "^15.7.2",
     "ramda": "^0.26.1",
     "react": "^16.8.6",

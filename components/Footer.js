@@ -1,6 +1,6 @@
 import React from 'react'
 import {Text, Box, Flex} from 'rebass'
-import Link from './Link'
+import Link from 'next/link'
 
 import withZoom from './withZoom'
 import withHoverCursor from './withHoverCursor'
