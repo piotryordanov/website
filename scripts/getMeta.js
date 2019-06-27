@@ -18,9 +18,9 @@ fs.readdirSync(directoryPath).forEach(file => {
 	}
 })
 
-const copyFile = function(dir, name) {
+const copyFile = function(dir, name, newName) {
 	fs.createReadStream(path.join(dir, name)).pipe(
-		fs.createWriteStream(path.join('./static/posts/', name))
+		fs.createWriteStream(path.join('./static/posts/', newName))
 	)
 }
 
@@ -29,8 +29,8 @@ bookDirectories.map(dir => {
 	const PATH = path.join(directoryPath, dir)
 	const temp = {title: dir, posts: []}
 	fs.readdirSync(PATH).map(file => {
-		copyFile(PATH, file)
-		return temp.posts.push(file.split('.md')[0])
+		copyFile(PATH, file, file.split('-')[1])
+		return temp.posts.push(file.split('.md')[0].split('-')[1])
 	})
 	return meta.push(temp)
 })
