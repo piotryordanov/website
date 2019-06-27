@@ -3,7 +3,10 @@ const path = require('path')
 const fs = require('fs')
 
 // Joining path of directory
-const directoryPath = path.join(__dirname, '../../Dropbox/writing/equanimity')
+const directoryPath = path.join(
+	__dirname,
+	'../../../Dropbox/writing/equanimity'
+)
 
 const bookDirectories = []
 

@@ -1,6 +1,8 @@
 import React from 'react'
-import {Flex} from 'rebass'
+import {Box, Flex} from 'rebass'
 
+import HomepageIntro from './HomepageIntro'
+import Divider from './Divider'
 import BookCard from './BookCard'
 
 const renderBooks = props =>
@@ -8,8 +10,13 @@ const renderBooks = props =>
 
 const Index = props => (
 	<Flex mt={3} flexWrap="wrap" justifyContent="center">
+		<Flex mt={3} flexWrap="wrap" width={1}>
+			<Box mt={10} width={1}>
+				<HomepageIntro />
+				<Divider />
+			</Box>
+		</Flex>
 		{renderBooks(props)}
-		hello world
 	</Flex>
 )
 

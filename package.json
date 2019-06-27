@@ -6,14 +6,9 @@
   "description": "An opiniated frontend boilerplate built on top of nextJS",
   "main": "index.js",
   "scripts": {
-    "dev": "now dev",
-    "clean": "rm -rv out",
-    "build": "next build",
-    "export": "next export",
-    "deploy": "npm run build && npm run export && cd out && now",
-    "start": "next start",
-    "test": "xo --fix",
-    "docker": "sudo docker-compose down; sudo docker-compose up --build"
+    "start": "now dev",
+    "deploy": "node scripts/getMeta.js",
+    "test": "xo --fix"
   },
   "repository": {
     "type": "git",
