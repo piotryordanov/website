@@ -3,6 +3,6 @@ node_modules/
 out/
 
 static/meta.json
-static/posts/
-static/covers/
-static/logos/
+static/posts/*.md
+static/logos/*.jpg
+static/covers/*.jpg
