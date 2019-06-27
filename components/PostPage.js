@@ -1,17 +1,25 @@
-import React from "react";
-import ReactMarkdown from "react-markdown";
-import styled from "styled-components";
-import withZoom from "./withZoom";
+import React from 'react'
+import PropTypes from 'prop-types'
+import ReactMarkdown from 'react-markdown'
+import withZoom from './withZoom'
 
 const Index = props => (
-  <>
-    <div className="post__content__container">
-      <div className="zen">
-        <h1>{props.title}</h1>
-        <ReactMarkdown source={props.content} />
-      </div>
-    </div>
-  </>
-);
+	<>
+		<div className="post__content__container">
+			<div className="zen">
+				<h1>{props.title}</h1>
+				<ReactMarkdown source={props.content} />
+			</div>
+		</div>
+	</>
+)
+Index.propTypes = {
+	title: PropTypes.string,
+	content: PropTypes.string
+}
+Index.defaultProps = {
+	title: '',
+	content: ''
+}
 
-export default withZoom(Index);
+export default withZoom(Index)

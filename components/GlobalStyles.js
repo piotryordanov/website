@@ -1,5 +1,4 @@
-import React from "react";
-import { createGlobalStyle } from "styled-components";
+import {createGlobalStyle} from 'styled-components'
 
 export default createGlobalStyle`
   body {
@@ -7,4 +6,4 @@ export default createGlobalStyle`
     font-family: "Open Sans", sans-serif;
     background-color: #fafafa;
   }
-`;
+`

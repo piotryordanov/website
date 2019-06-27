@@ -1,4 +1,12 @@
 {
   "version": 2,
-  "builds": [{ "src": "package.json", "use": "@now/next" }]
+  "name": "nextjs",
+  "builds": [
+    { "src": "./static/*", "use": "@now/static" },
+    { "src": "package.json", "use": "@now/next" }
+  ],
+  "routes": [
+    { "src": "/post/(?<name>[^/]+)$", "dest": "/post?name=$name" },
+    { "src": "/book/(?<name>[^/]+)$", "dest": "/book?name=$name" }
+  ]
 }

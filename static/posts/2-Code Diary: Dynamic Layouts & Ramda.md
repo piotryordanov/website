@@ -1,9 +1,8 @@
 Jun 19, 2019
 Deadmau5 - Arguru - https://www.youtube.com/watch?v=hLALcdmxbh4
 
-  Yesterday, I decided to ditch my attempt to import the `pug` and `css` from the old website, and instead rebuild it from scratch. In hindsight, this was a wonderful decision, despite me having faced annoyances in the beginning. 
+  Yesterday, I decided to ditch my attempt to import the `pug` and `css` from the old website, and instead rebuild it from scratch. In hindsight, this was a wonderful decision, despite me having faced annoyances in the beginning.
   I actually believed that it would require more work to rebuild the design, but it soon became obvious that on the contrary, it was easier and way neater to develop the project using `nextJS` and the tools I have in place. I give particular credit to the decisions of ditching pure css, and insisting on keeping a tight component structure. 
-  
   As a result, the codebase this time was much smaller. The legacy project contained 3,000 lines of css, 500 lines of pug, and 500 lines of js. That's a total of 4,000 lines. The current React code base is barely 1,000 lines of js only.
 
 
@@ -12,7 +11,8 @@ Deadmau5 - Arguru - https://www.youtube.com/watch?v=hLALcdmxbh4
   ## Dynamic Layouts
 
   By default, NextJS does not support dynamic routing which is critical in my case since i'm building a CMS. Fortunately, this is easy to do using one of the github example:
-  ```
+
+  ```jsx
 const express = require("express");
 const next = require("next");
 
@@ -52,7 +52,7 @@ app
   My initial attempt was the wrap the HOC `withLayout` with this. But, then I'd have to pass down the props throw a cascade of childen. After a couple of failed attemps, I had this 'aha' moment. The `withRouter` methods exposes the `router` to any component it is wrapped around. Then, all I need to do is wrap the component that needs this info, instead of the full navbar! Most importantly, this doesn't break my *container/component* design since the `withRouter` methods acts as the container; its job is to prefill `props` with the `router` data. Then, the `HeaderLogo` component will be aware of it.
   After that, I used Ramda for the first time:
 
-  ```
+  ```jsx
 const renderLogo = props =>
   R.ifElse(
     R.hasPath(["router", "query", "book"]),
@@ -79,7 +79,8 @@ const renderLogo = props =>
   So far, I hardcoded stub book and posts information into the code. I reached the point where that was no longer sustainable. Time to start playing with redux!
   But first, lemme take a selfie. Ah no wait...
   First, I wrote a server method that would look at my Dropbox writing folder, and created a `meta.json` which is an array of books meta info that looks like this:
-  ```
+
+  ```json
 {
   "id": "book-id",
   "title": "book title",
@@ -92,7 +93,8 @@ const renderLogo = props =>
 
   The next step was to prefetch this data into redux when the component loads. I figured the easiest was to have a dispatch method inside the `_app.js` file. I'm sure it's far from correct, but given that I need this data only once, it's not a big deal.
   I did however stick to the `container/component` philosophy. I started by refactoring the `./index.js` page:
-  ```
+
+```jsx
 import React from "react";
 import { Flex, Box } from "rebass";
 import withLayout from "../components/withLayout";
@@ -100,11 +102,11 @@ import withLayout from "../components/withLayout";
 import HomepageContainer from "../containers/HomepageContainer";
 
 export default withLayout(HomepageContainer);
-  ```
+```
 
   The HomepageContainer's job is to connect to redux, and expose the books to the Homepage component. It's job is also to figure out if the Books array is empty (meaning we haven't fetched the meta data yet). In this case, it should display a loading sign. And guess how I build it? That's right... with Ramda!
 
-  ```
+```jsx
 import { connect } from "react-redux";
 import * as R from "ramda";
 
@@ -123,14 +125,15 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(Index);
-  ```
+```
 
   Again, I don't think Ramda was essential here, but I like to set a good precedant. 
 
 ----
 
   Later that day, I stumbled upon a strong use case of Ramda:
-  ```
+
+```jsx
 const mapStateToProps = (state, props) => ({
   data: R.ifElse(
     R.hasPath(["router", "query", "book"]),
@@ -146,7 +149,8 @@ const mapStateToProps = (state, props) => ({
   ## A note on Ramda
 
   In this post, the 2 use cases of Ramda aren't compelling. But, when one wants to do complex maps and/or reduces, Ramda shines. However, I know from experience that ramda is tricky. Lots of it's functions return functions, and so you need to know how to properly use it. For example, this won't work:
-  ```
+
+  ```jsx
   R.ifElse(
     R.equals(0, R.length(props.Books)),
     ...
@@ -154,7 +158,8 @@ const mapStateToProps = (state, props) => ({
   ```
 
   Why? Because the first parameter has to be a function. But, the way it's written, it is actually running the function. What you need to do instead is to not give the `R.equals` its second parameter. Only then with the ifElse work. The solution is then simple:
-  ```
+
+  ```jsx
   R.ifElse(
     R.equals(0),
     ...
@@ -168,7 +173,7 @@ const mapStateToProps = (state, props) => ({
   ----
 
   ## Closing thoughts
-  Now that the loading into redux is done, I 
-  I pulled a couple of pictures from unsplashed, and I was ready to go. The blog might be empty, but I actually love the warm colors in the homepage.
+
+  Now that the loading into redux is done, I pulled a couple of pictures from unsplashed, and I was ready to go. The blog might be empty, but I actually love the warm colors in the homepage.
 
  ![picture of blog]( https://i.imgur.com/ylCNOl5.jpg)
