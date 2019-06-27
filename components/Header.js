@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Box, Flex} from 'rebass'
 import Headroom from 'react-headroom'
 import ProgressBar from 'react-styled-clickable-progress-bar'
@@ -9,11 +9,19 @@ import HeaderLogo from './HeaderLogo'
 import HeaderSubscribeButton from './HeaderSubscribeButton'
 
 const Bar = styled(ProgressBar)`
+	display: ${props => (props.display === 1 ? '' : 'none')};
 	transition: top 200ms ease-in-out;
 `
 
 export default props => {
 	const [top, updateTop] = useState('0px')
+	const [hasProgressBar, showProgressBar] = useState(0)
+	useEffect(() => {
+		// eslint-disable-next-line no-undef
+		if (location.pathname.split('/')[1] === 'post') {
+			showProgressBar(1)
+		}
+	}, [])
 	return (
 		<>
 			<Headroom
@@ -29,7 +37,7 @@ export default props => {
 					</Box>
 				</Navbar>
 			</Headroom>
-			<Bar top={top} />
+			<Bar top={top} display={hasProgressBar} />
 		</>
 	)
 }
