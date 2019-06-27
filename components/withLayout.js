@@ -16,12 +16,7 @@ const withLayout = Page => props => (
 	<>
 		<Fonts />
 		<GlobalStyles />
-		<Flex
-			flexDirection="column"
-			css={{
-				'min-height': `${window.innerHeight}px`
-			}}
-		>
+		<Flex flexDirection="column">
 			<Box width={1}>
 				<HeaderContainer />
 			</Box>
