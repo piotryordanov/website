@@ -224,6 +224,8 @@ p.dialogue:first-child:first-letter {
 }
 
 .zen pre {
+  border: 1px solid #8a8686;
+  border-radius: 3px;
 	white-space: pre-wrap;
     font-size: 19px;
 }
@@ -287,3 +289,27 @@ hr::after {
   padding: 10px 0px;
   margin: 20px 0px;
 }
+.list {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.list > div {
+  position: absolute;
+  will-change: transform, width, height, opacity;
+}
+
+/* .list > div > div { */
+/*   position: relative; */
+/*   background-size: cover; */
+/*   background-position: center center; */
+/*   width: 90%; */
+/*   height: 90%; */
+/*   overflow: hidden; */
+/*   text-transform: uppercase; */
+/*   font-size: 10px; */
+/*   line-height: 10px; */
+/*   border-radius: 4px; */
+/*   box-shadow: 0px 10px 50px -10px rgba(0, 0, 0, 0.2); */
+/* } */

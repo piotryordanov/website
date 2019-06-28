@@ -2,14 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import * as R from 'ramda'
 import Link from 'next/link'
-import withZoom from './withZoom'
+import PropTypes from 'prop-types'
 import withHoverCursor from './withHoverCursor'
 
 const Card = withHoverCursor(styled.div`
-	width: 200px;
-	height: 300px;
-	margin: 20px;
-	position: relative;
+	position: absolute;
+	will-change: transform, width, height, opacity;
+	margin: 0px;
+	text-align: center;
+	width: 100%;
+	height: 95%;
+	overflow: hidden;
 `)
 const BackgroundImage = styled.div`
 	width: 100%;
@@ -22,7 +25,7 @@ const BackgroundImage = styled.div`
 	z-index: -1;
 	background-position: 50% 50% !important;
 	background-size: cover;
-	filter: brightness(70%);
+	filter: brightness(40%);
 	background-image: ${props =>
 		`url(/static/posts/${R.replace(/ /g, '\\ ', props.title)}.jpg)`};
 	border-radius: 5px;
@@ -36,14 +39,23 @@ const Text = styled.div`
 	font-size: 25px;
 	font-family: 'Open Sans', sans-serif;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	text-align: left;
 	color: white;
 `
 
-export default withZoom(props => (
+const Index = props => (
 	<Link href={`/post?name=${props.title}`} as={`/post/${props.title}`}>
 		<Card>
 			<BackgroundImage {...props} />
 			<Text>{props.title}</Text>
 		</Card>
 	</Link>
-))
+)
+Index.propTypes = {
+	title: PropTypes.string
+}
+Index.defaultProps = {
+	title: ''
+}
+
+export default Index

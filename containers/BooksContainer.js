@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import BooksPage from '../components/BooksPage'
 import withLoading from '../components/withLoading'
 
-const Index = props => {
+const BooksContainer = props => {
 	const d = R.ifElse(
 		R.hasPath(['router', 'asPath']),
 		() =>
@@ -23,14 +23,14 @@ const Index = props => {
 	return <BooksPage {...d} />
 }
 
-Index.propTypes = {
+BooksContainer.propTypes = {
 	router: PropTypes.object,
-	meta: PropTypes.object
+	meta: PropTypes.array
 }
 
-Index.defaultProps = {
+BooksContainer.defaultProps = {
 	router: {},
-	meta: {}
+	meta: []
 }
 
-export default withLoading(Index, ['posts'])
+export default withLoading(BooksContainer, ['posts'])
