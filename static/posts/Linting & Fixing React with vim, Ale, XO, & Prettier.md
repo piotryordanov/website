@@ -83,9 +83,11 @@ let g:ale_javascript_xo_options = "--plug=react --prettier"
 
 ```json
 // package.json
+{
   "xo": {
     "prettier": true,
   }
+}
 ```
 
   But, that's not enough. `xo` uses eslint under the hood, and eslint does not understand react by default. It will throw errors at otherwise correct jsx statements:
@@ -103,7 +105,7 @@ let g:ale_javascript_xo_options = "--plug=react --prettier"
   },
   "xo": {
     "prettier": true,
-+    "extends": "xo-react",
++   "extends": "xo-react",
   }
   ```
 
@@ -115,9 +117,9 @@ let g:ale_javascript_xo_options = "--plug=react --prettier"
   "xo": {
     "prettier": true,
     "extends": "xo-react",
-+    "rules": {
-+      "unicorn/filename-case": 0,
-+    }
++   "rules": {
++     "unicorn/filename-case": 0,
++   }
   }
   ```
 
@@ -137,11 +139,11 @@ let g:ale_javascript_xo_options = "--plug=react --prettier"
   "scripts":{
 +    "test": "xo --fix"
   },
-+  "husky": {
-+    "hooks": {
-+      "pre-commit": "npm test"
-+    }
-+  }
++ "husky": {
++   "hooks": {
++     "pre-commit": "npm test"
++   }
++ }
 }
 ```
   This way, before every commit, `npm test` is run, and for now, this script will run xo. 
@@ -152,8 +154,8 @@ let g:ale_javascript_xo_options = "--plug=react --prettier"
 {
   "husky": {
     "hooks": {
--      "pre-commit": "npm test"
-+      "pre-push": "npm test"
+-   "pre-commit": "npm test"
++   "pre-push": "npm test"
     }
   }
 }
