@@ -39,16 +39,27 @@ const Grid = ({data}) => {
 	// UseEffect(() => void setInterval(() => set(shuffle), 2000), [])
 	// Form a grid of stacked items
 	const heights = new Array(columns).fill(0) // Each column gets a height starting with zero
+	const breakPoints = []
+	for (let i = 0; i < 10; i++) {
+		breakPoints.push(4 * i + 1)
+		breakPoints.push(4 * i + 2)
+	}
+
 	const gridItems = data.map((child, i) => {
 		const column = heights.indexOf(Math.min(...heights)) // Basic masonry-grid placing, puts tile into the smallest column using Math.min
+		const currWidth =
+			columns === 1
+				? width
+				: breakPoints.indexOf(i) > -1
+				? width * 0.33
+				: width * 0.66
 		const xy = [
-			(width / columns) * column,
-			(heights[column] += child.height / 2) - child.height / 2
+			i % columns === 0 ? 0 : width - currWidth,
+			// (width / columns) * column,
+			(heights[column] += child.height) - child.height
 		] // X = container width / number of columns * column index, Y = it's just the height of the current column
-		console.log(width)
-		console.log(columns)
-		console.log(width / columns)
-		return {...child, xy, width: width / columns, height: child.height / 2}
+		return {...child, xy, width: currWidth, height: child.height}
+		// Return {...child, xy, width: width / columns, height: child.height / 2}
 	})
 	// Turn the static grid values into animated transitions, any addition, removal or change will be animated
 	const transitions = useTransition(gridItems, item => item.title, {
@@ -64,7 +75,7 @@ const Grid = ({data}) => {
 		<div {...bind} className="list" style={{height: Math.max(...heights)}}>
 			{transitions.map(({item, props: {xy, ...rest}, key}) => (
 				<a.div
-					key={item.title}
+					key={key}
 					style={{
 						transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`),
 						...rest

@@ -10,9 +10,8 @@ const Card = withHoverCursor(styled.div`
 	will-change: transform, width, height, opacity;
 	margin: 0px;
 	text-align: center;
-	width: 90%;
-	margin-left: 5%;
-	height: 90%;
+	width: 100%;
+	height: 95%;
 	overflow: hidden;
 `)
 const BackgroundImage = styled.div`
@@ -26,7 +25,7 @@ const BackgroundImage = styled.div`
 	z-index: -1;
 	background-position: 50% 50% !important;
 	background-size: cover;
-	filter: brightness(70%);
+	filter: brightness(40%);
 	background-image: ${props =>
 		`url(/static/posts/${R.replace(/ /g, '\\ ', props.title)}.jpg)`};
 	border-radius: 5px;
@@ -40,6 +39,7 @@ const Text = styled.div`
 	font-size: 25px;
 	font-family: 'Open Sans', sans-serif;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-align: left;
 	color: white;
 `
 

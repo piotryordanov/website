@@ -22,7 +22,7 @@ import Grid from './Grid'
 // )
 const BooksPage = ({posts}) => {
 	const d = R.reduce(
-		(acc, item) => R.append({title: item, height: 500}, acc),
+		(acc, item) => R.append({title: item, height: 300}, acc),
 		[],
 		posts
 	)
