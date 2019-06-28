@@ -20,6 +20,7 @@ const BooksContainer = props => {
 			)(props.meta),
 		R.always([])
 	)(props)
+	console.log(d)
 	return <BooksPage {...d} />
 }
 

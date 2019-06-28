@@ -76,6 +76,7 @@ const Grid = ({data}) => {
 		config: {mass: 5, tension: 1500, friction: 100},
 		trail: 25
 	})
+  console.log(transitions);
 	// Render the grid
 	return (
 		<div {...bind} className="list" style={{height: Math.max(...heights)}}>
@@ -87,7 +88,7 @@ const Grid = ({data}) => {
 						...rest
 					}}
 				>
-					<PostCard title={item.title} />
+          <PostCard {...item} />
 				</a.div>
 			))}
 		</div>

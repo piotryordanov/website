@@ -24,13 +24,23 @@ const copyFile = function(dir, name, newName) {
 	)
 }
 
+const readingTime = require('reading-time')
+
 const meta = []
 bookDirectories.map(dir => {
 	const PATH = path.join(directoryPath, dir)
 	const temp = {title: dir, posts: []}
 	fs.readdirSync(PATH).map(file => {
 		copyFile(PATH, file, file.split('-')[1])
-		return temp.posts.push(file.split('.md')[0].split('-')[1])
+
+		const content = fs.readFileSync(path.join(PATH, file), 'utf-8')
+		const stats = readingTime(content)
+
+		return temp.posts.push({
+			title: file.split('.md')[0].split('-')[1],
+			readTime: stats.text,
+			date: content.split('\n')[0]
+		})
 	})
 	return meta.push(temp)
 })

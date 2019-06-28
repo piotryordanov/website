@@ -55,8 +55,8 @@ const Index = props => (
 				<Text fontSize={['15px', '15px', '17px', '17px']} fontWeight="bold">
 					{props.title}
 				</Text>
-				<Text>date</Text>
-				<Text fontSize="12px">1 min read</Text>
+				<Text fontSize="15px">{props.date}</Text>
+				<Text fontSize="12px">{props.readTime}</Text>
 			</Info>
 		</Card>
 	</Link>
