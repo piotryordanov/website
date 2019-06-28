@@ -44,5 +44,9 @@ bookDirectories.map(dir => {
 	})
 	return meta.push(temp)
 })
-
+meta.map(book =>
+	book.posts.sort(
+		(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+	)
+)
 fs.writeFileSync('./static/meta.json', JSON.stringify(meta))
