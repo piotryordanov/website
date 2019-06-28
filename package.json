@@ -26,6 +26,7 @@
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.19.0",
     "express": "^4.17.1",
+    "lodash": "^4.17.11",
     "next": "^8.1.0",
     "next-redux-wrapper": "^3.0.0-alpha.3",
     "nextjs": "^0.0.3",
@@ -40,12 +41,14 @@
     "react-redux": "^7.1.0",
     "react-reveal": "^1.2.2",
     "react-spinners": "^0.5.4",
+    "react-spring": "^8.0.25",
     "react-styled-clickable-progress-bar": "^1.0.11",
     "react-syntax-highlighter": "^10.3.1",
     "rebass": "^3.1.1",
     "redux": "^4.0.1",
     "redux-act": "^1.7.6",
     "redux-thunk": "^2.3.0",
+    "resize-observer-polyfill": "^1.5.1",
     "styled-components": "^4.3.1"
   },
   "devDependencies": {
@@ -94,7 +97,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "pre-push": "npm test"
     }
   }
 }

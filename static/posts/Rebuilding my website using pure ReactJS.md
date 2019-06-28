@@ -33,7 +33,7 @@ Deadmau5 - Arguru - https://www.youtube.com/watch?v=hLALcdmxbh4
   The footer contains a list of the standard pages in a website. Privacy, TOC, contact, etc...
   In my initial code, I wrote the Boxes for each of these hyperlinks, but again, this sets a bad coding habit precedent. Instead, I stored these components inside an array and looped over it.
 
-  ```js
+  ```jsx
 const links = [
   { name: "Terms And Conditions", href: "terms-and-conditions" },
   { name: "Privacy Policy", href: "privacy" },
