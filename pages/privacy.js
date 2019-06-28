@@ -2,6 +2,7 @@
 import React from 'react'
 import {Box} from 'rebass'
 import styled from 'styled-components'
+import withZoom from '../components/withZoom'
 import withLayout from '../components/withLayout'
 
 const EntryContent = styled(Box)`
@@ -98,4 +99,4 @@ const Index = () => (
 	</EntryContent>
 )
 
-export default withLayout(Index)
+export default withLayout(withZoom(Index))
