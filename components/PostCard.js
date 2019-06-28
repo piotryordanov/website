@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import * as R from 'ramda'
+import {Text} from 'rebass'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import withHoverCursor from './withHoverCursor'
@@ -30,24 +31,33 @@ const BackgroundImage = styled.div`
 		`url(/static/posts/${R.replace(/ /g, '\\ ', props.title)}.jpg)`};
 	border-radius: 5px;
 `
-const Text = styled.div`
+const Info = styled.div`
 	position: absolute;
 	left: 0;
 	bottom: 0;
 	right: 0;
 	margin: 30px 5px 30px 20px;
-	font-size: 25px;
-	font-family: 'Open Sans', sans-serif;
-	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 	text-align: left;
 	color: white;
 `
+// Const Text = styled.div`
+// 	font-size: 20px;
+// 	font-family: 'Open Sans', sans-serif;
+// 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+// 	color: white;
+// `
 
 const Index = props => (
 	<Link href={`/post?name=${props.title}`} as={`/post/${props.title}`}>
 		<Card>
 			<BackgroundImage {...props} />
-			<Text>{props.title}</Text>
+			<Info>
+				<Text fontSize={['15px', '15px', '17px', '17px']} fontWeight="bold">
+					{props.title}
+				</Text>
+				<Text>date</Text>
+				<Text fontSize="12px">1 min read</Text>
+			</Info>
 		</Card>
 	</Link>
 )
