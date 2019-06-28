@@ -2,14 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 import * as R from 'ramda'
 import Link from 'next/link'
-import withZoom from './withZoom'
+import PropTypes from 'prop-types'
 import withHoverCursor from './withHoverCursor'
 
 const Card = withHoverCursor(styled.div`
-	width: 200px;
-	height: 300px;
-	margin: 20px;
-	position: relative;
+	position: absolute;
+	will-change: transform, width, height, opacity;
+	margin: 0px;
+	text-align: center;
+	width: 90%;
+	margin-left: 5%;
+	height: 90%;
+	overflow: hidden;
 `)
 const BackgroundImage = styled.div`
 	width: 100%;
@@ -39,11 +43,19 @@ const Text = styled.div`
 	color: white;
 `
 
-export default withZoom(props => (
+const Index = props => (
 	<Link href={`/post?name=${props.title}`} as={`/post/${props.title}`}>
 		<Card>
 			<BackgroundImage {...props} />
 			<Text>{props.title}</Text>
 		</Card>
 	</Link>
-))
+)
+Index.propTypes = {
+	title: PropTypes.string
+}
+Index.defaultProps = {
+	title: ''
+}
+
+export default Index
