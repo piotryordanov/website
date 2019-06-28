@@ -224,6 +224,8 @@ p.dialogue:first-child:first-letter {
 }
 
 .zen pre {
+  border: 1px solid #8a8686;
+  border-radius: 3px;
 	white-space: pre-wrap;
     font-size: 19px;
 }
