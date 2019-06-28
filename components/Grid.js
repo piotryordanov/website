@@ -1,3 +1,4 @@
+/* eslint no-undef: 0 */
 import React, {useRef, useState, useEffect, useCallback} from 'react'
 import {useTransition, a} from 'react-spring'
 import ResizeObserver from 'resize-observer-polyfill'

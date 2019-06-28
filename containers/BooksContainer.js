@@ -6,7 +6,6 @@ import BooksPage from '../components/BooksPage'
 import withLoading from '../components/withLoading'
 
 const BooksContainer = props => {
-  console.log(props);
 	const d = R.ifElse(
 		R.hasPath(['router', 'asPath']),
 		() =>
