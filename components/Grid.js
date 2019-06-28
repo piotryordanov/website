@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import PostCard from './PostCard'
 
 const useMedia = (queries, values, defaultValue) => {
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const match = useCallback(
 		() => values[queries.findIndex(q => matchMedia(q).matches)] || defaultValue
 	)
