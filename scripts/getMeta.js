@@ -70,7 +70,8 @@ bookDirectories.map(dir => {
 				})
 			}
 		}
-    return
+
+		return 0
 	})
 	return meta.push(temp)
 })
