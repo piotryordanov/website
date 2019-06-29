@@ -22,7 +22,7 @@ import Grid from './Grid'
 // )
 const BooksPage = ({posts}) => {
 	const d = R.reduce(
-		(acc, item) => R.append({title: item, height: 300}, acc),
+		(acc, item) => R.append(R.assoc('height', 300, item), acc),
 		[],
 		posts
 	)
