@@ -34,10 +34,10 @@ const convertImage = (source, imageID, name) => {
 		return
 	}
 
-	imagemin([source + '/*.jpg'], '/tmp', {
+	imagemin([source + '/*.jpg'], '/tmp/build/', {
 		plugins: [imageminJpegRecompress()]
-	}).then(err => {
-		fs.createReadStream(`/tmp/${imageID}.jpg`).pipe(
+	}).then(() => {
+		fs.createReadStream(`/tmp/build/${imageID}.jpg`).pipe(
 			fs.createWriteStream(output)
 		)
 	})
