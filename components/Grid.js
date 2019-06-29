@@ -73,7 +73,7 @@ const Grid = ({data}) => {
 		enter: ({xy, width, height}) => ({xy, width, height, opacity: 1}),
 		update: ({xy, width, height}) => ({xy, width, height}),
 		leave: {height: 0, opacity: 0},
-		config: {mass: 5, tension: 1500, friction: 100},
+		config: {mass: 5, tension: 500, friction: 100},
 		trail: 25
 	})
 	// Render the grid

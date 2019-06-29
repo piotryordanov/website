@@ -47,7 +47,7 @@ Arguru
 
 ----
 
-  # Now
+# Now
 
   Well that was an adventure. Whether I pass the test or not, what I now know for sure is that there are clear holes in my workflow. I need to be able to deploy a serverless app, but I don't know how.
   I'm not sure why, I found myself reading about `Zeit.Now`. I had only used them to host static assets. But, I was away that in their v2, they support lambda functions, which is exactly what I am looking for!
@@ -57,7 +57,8 @@ Arguru
   - If yes, does it look vastly different as a lambda function?
   - Can i setup dynamic routes for my blog without having an express server alltogether?
 
-  ## Exploring
+ ## Exploring
+
   Digging around, I came across a [demo](https://serverless-express.now.sh/) that does exactly what I was asked in the test!!! It used passport to login to twitter, and it is hostable on `now` without needing any server!!!
 
   The demo, however, did not have any RactJS or NextJS components. Still, that should be trivial to add. Looking around, I found another hacker new demo that used a combination of React and express, all managed and deployed with `now`.

@@ -27,20 +27,34 @@ const copyFile = function(Path, newName) {
 	)
 }
 
-const convertImage = (source, imageID, name) => {
-	const target = './static/posts'
-	const output = `${target}/${name}.jpg`
-	if (fs.existsSync(output)) {
-		return
-	}
+const sharp = require('sharp')
 
-	imagemin([source + '/*.jpg'], '/tmp/build/', {
-		plugins: [imageminJpegRecompress()]
-	}).then(() => {
-		fs.createReadStream(`/tmp/build/${imageID}.jpg`).pipe(
-			fs.createWriteStream(output)
-		)
-	})
+const convertImage = (source, imageID, name) => {
+	sharp(`${source}/${imageID}.jpg`)
+		.resize({width: 2000})
+		.toFile(`./static/posts/${imageID}.jpg`)
+		.then(() => {
+			// Output.png is a 200 pixels wide and 300 pixels high image
+			// containing a nearest-neighbour scaled version
+			// contained within the north-east corner of a semi-transparent white canvas
+		})
+
+	// Const target = './static/posts'
+	// const output = `${target}/${name}.jpg`
+	// if (fs.existsSync(output)) {
+	// 	return
+	// }
+	//
+	// console.log(source)
+	//
+	// imagemin([source + '/*.jpg'], '/tmp/build/', {
+	// 	plugins: [imageminJpegRecompress()]
+	// }).then(err => {
+	// 	console.log(err)
+	// 	// Fs.createReadStream(`/tmp/${imageID}.jpg`).pipe(
+	// 	// 	fs.createWriteStream(output)
+	// 	// )
+	// })
 }
 
 const meta = []
@@ -70,8 +84,6 @@ bookDirectories.map(dir => {
 				})
 			}
 		}
-
-		return 0
 	})
 	return meta.push(temp)
 })
