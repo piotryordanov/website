@@ -2,8 +2,6 @@
 const path = require('path')
 const fs = require('fs')
 const readingTime = require('reading-time')
-const imagemin = require('imagemin')
-const imageminJpegRecompress = require('imagemin-jpeg-recompress')
 
 // Joining path of directory
 const directoryPath = path.join(
@@ -29,7 +27,7 @@ const copyFile = function(Path, newName) {
 
 const sharp = require('sharp')
 
-const convertImage = (source, imageID, name) => {
+const convertImage = (source, imageID) =>
 	sharp(`${source}/${imageID}.jpg`)
 		.resize({width: 2000})
 		.toFile(`./static/posts/${imageID}.jpg`)
@@ -38,24 +36,6 @@ const convertImage = (source, imageID, name) => {
 			// containing a nearest-neighbour scaled version
 			// contained within the north-east corner of a semi-transparent white canvas
 		})
-
-	// Const target = './static/posts'
-	// const output = `${target}/${name}.jpg`
-	// if (fs.existsSync(output)) {
-	// 	return
-	// }
-	//
-	// console.log(source)
-	//
-	// imagemin([source + '/*.jpg'], '/tmp/build/', {
-	// 	plugins: [imageminJpegRecompress()]
-	// }).then(err => {
-	// 	console.log(err)
-	// 	// Fs.createReadStream(`/tmp/${imageID}.jpg`).pipe(
-	// 	// 	fs.createWriteStream(output)
-	// 	// )
-	// })
-}
 
 const meta = []
 bookDirectories.map(dir => {
@@ -74,7 +54,7 @@ bookDirectories.map(dir => {
 				const stats = readingTime(Content)
 				const title = file.split('.md')[0].split('-')[1]
 				const imageID = content[2]
-				convertImage(PATH, imageID, imageID)
+				convertImage(PATH, imageID)
 
 				return temp.posts.push({
 					title,
@@ -84,6 +64,8 @@ bookDirectories.map(dir => {
 				})
 			}
 		}
+
+		return 0
 	})
 	return meta.push(temp)
 })
