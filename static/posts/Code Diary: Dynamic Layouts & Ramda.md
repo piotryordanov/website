@@ -1,4 +1,6 @@
+published
 Jun 19, 2019
+ZMraoOybTLQ
 Deadmau5 - Arguru - https://www.youtube.com/watch?v=hLALcdmxbh4
 
   Yesterday, I decided to ditch my attempt to import the `pug` and `css` from the old website, and instead rebuild it from scratch. In hindsight, this was a wonderful decision, despite me having faced annoyances in the beginning.

@@ -1,4 +1,6 @@
+published
 Jun 18, 2019
+vWsubsaym3o
 Deadmau5 - Arguru - https://www.youtube.com/watch?v=hLALcdmxbh4
 
   Last week, I decided to revive my previous website by finding a hack to import `pug` to react. This way, I thought I'd avoid having to convert pug and CSS into react. But, it quickly because obvious that this approach won't scale. Every time I'll want to make a change, I'd need to edit CSS files/classes. This adds an overhead that in the long term will be a pain to manage. I don't want dust in the engine!.

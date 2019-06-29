@@ -4,6 +4,7 @@
   "alias": "piotryordanov.com",
   "builds": [
     { "src": "./static/*", "use": "@now/static" },
+    { "src": "./static/posts/*", "use": "@now/static" },
     { "src": "package.json", "use": "@now/next" }
   ],
   "routes": [
