@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import * as R from 'ramda'
-import {Image, Flex, Text} from 'rebass'
+import {Flex, Text} from 'rebass'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import withHoverCursor from './withHoverCursor'
@@ -76,10 +75,14 @@ const Index = props => (
 	</Link>
 )
 Index.propTypes = {
-	title: PropTypes.string
+	title: PropTypes.string,
+	date: PropTypes.string,
+	readTime: PropTypes.string
 }
 Index.defaultProps = {
-	title: ''
+	title: '',
+	date: '',
+	readTime: ''
 }
 
 export default Index

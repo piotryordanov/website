@@ -87,7 +87,7 @@ const Grid = ({data}) => {
 						...rest
 					}}
 				>
-          <PostCard {...item} />
+					<PostCard {...item} />
 				</a.div>
 			))}
 		</div>
