@@ -1,6 +1,9 @@
 // Requiring path and fs modules
 const path = require('path')
 const fs = require('fs')
+const readingTime = require('reading-time')
+const imagemin = require('imagemin')
+const imageminJpegRecompress = require('imagemin-jpeg-recompress')
 
 // Joining path of directory
 const directoryPath = path.join(
@@ -18,29 +21,55 @@ fs.readdirSync(directoryPath).forEach(file => {
 	}
 })
 
-const copyFile = function(dir, name, newName) {
-	fs.createReadStream(path.join(dir, name)).pipe(
+const copyFile = function(Path, newName) {
+	fs.createReadStream(Path).pipe(
 		fs.createWriteStream(path.join('./static/posts/', newName))
 	)
 }
 
-const readingTime = require('reading-time')
+const convertImage = (source, imageID, name) => {
+	const target = './static/posts'
+	const output = `${target}/${name}.jpg`
+	if (fs.existsSync(output)) {
+		return
+	}
+
+	imagemin([source + '/*.jpg'], '/tmp', {
+		plugins: [imageminJpegRecompress()]
+	}).then(err => {
+		fs.createReadStream(`/tmp/${imageID}.jpg`).pipe(
+			fs.createWriteStream(output)
+		)
+	})
+}
 
 const meta = []
 bookDirectories.map(dir => {
 	const PATH = path.join(directoryPath, dir)
 	const temp = {title: dir, posts: []}
 	fs.readdirSync(PATH).map(file => {
-		copyFile(PATH, file, file.split('-')[1])
+		// Only process markdown files
+		if (file.indexOf('md') > 0) {
+			const currPath = path.join(PATH, file)
+			copyFile(currPath, file.split('-')[1])
 
-		const content = fs.readFileSync(path.join(PATH, file), 'utf-8')
-		const stats = readingTime(content)
+			const Content = fs.readFileSync(currPath, 'utf-8')
+			const content = Content.split('\n')
 
-		return temp.posts.push({
-			title: file.split('.md')[0].split('-')[1],
-			readTime: stats.text,
-			date: content.split('\n')[0]
-		})
+			if (content[0] === 'published') {
+				const stats = readingTime(Content)
+				const title = file.split('.md')[0].split('-')[1]
+				const imageID = content[2]
+				convertImage(PATH, imageID, imageID)
+
+				return temp.posts.push({
+					title,
+					cover: imageID,
+					readTime: stats.text,
+					date: content[1]
+				})
+			}
+		}
 	})
 	return meta.push(temp)
 })
