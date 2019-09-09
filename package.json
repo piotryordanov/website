@@ -81,10 +81,5 @@
         }
       ]
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run deploy; npm test"
-    }
   }
 }
