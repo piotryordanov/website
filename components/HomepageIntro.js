@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import withZoom from './withZoom'
 
 const ImageContainer = styled.img`
-	width: 60px;
+	width: 50px;
 	height: 50px;
 	border-radius: 100px;
 `

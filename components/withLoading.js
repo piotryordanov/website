@@ -1,7 +1,7 @@
-import React from 'react'
-import * as R from 'ramda'
-import {Box} from 'rebass'
-import {ClipLoader} from 'react-spinners'
+import React from "react"
+import * as R from "ramda"
+import { Box } from "rebass"
+import { ClipLoader } from "react-spinners"
 
 const Loader = () => (
 	<Box my={50} width="100px" margin="auto">
