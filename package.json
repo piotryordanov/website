@@ -28,7 +28,7 @@
     "express": "^4.17.1",
     "imagemin": "^6.1.0",
     "imagemin-jpeg-recompress": "^6.0.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "next": "^8.1.0",
     "next-redux-wrapper": "^3.0.0-alpha.3",
     "nextjs": "^0.0.3",
