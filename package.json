@@ -29,7 +29,7 @@
     "imagemin": "^6.1.0",
     "imagemin-jpeg-recompress": "^6.0.0",
     "lodash": "^4.17.19",
-    "next": "^8.1.0",
+    "next": "^9.3.2",
     "next-redux-wrapper": "^3.0.0-alpha.3",
     "nextjs": "^0.0.3",
     "now": "^15.6.1",
